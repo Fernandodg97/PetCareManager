@@ -47,11 +47,11 @@
 
         <!-- Botones -->
         <div class="buttons-container">
-          <ion-button color="primary" expand="block" router-link="/tabs/tab5/secundaria"
+          <ion-button color="primary" expand="block" router-link="/petcaremanager/perfil/cambiarcontraseña"
             aria-label="Cambiar contraseña">
             Cambiar contraseña
           </ion-button>
-          <ion-button color="primary" expand="block" router-link="/tabs/tab5" aria-label="Guardar cambios">
+          <ion-button color="primary" expand="block" router-link="/petcaremanager/perfil" aria-label="Guardar cambios">
             Guardar
           </ion-button>
         </div>

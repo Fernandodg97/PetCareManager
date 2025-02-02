@@ -72,7 +72,7 @@
           <ion-button
             color="primary"
             expand="block"
-            router-link="/tabs/tab2"
+            router-link="/petcaremanager/historialmedico/"
             aria-label="Guardar historial médico"
           >
             Guardar
@@ -80,7 +80,7 @@
           <ion-button
             color="danger"
             expand="block"
-            router-link="/tabs/tab2"
+            router-link="/petcaremanager/historialmedico/"
             aria-label="Eliminar historial médico"
           >
             Eliminar

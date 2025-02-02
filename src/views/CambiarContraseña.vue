@@ -36,7 +36,7 @@
 
         <!-- Botones -->
         <div class="buttons-container">
-          <ion-button color="primary" expand="block" router-link="/tabs/tab5" aria-label="Cambiar contraseña">
+          <ion-button color="primary" expand="block" router-link="/petcaremanager/perfil" aria-label="Cambiar contraseña">
             Cambiar contraseña
           </ion-button>
         </div>

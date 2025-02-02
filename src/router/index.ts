@@ -8,7 +8,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     redirect: '/petcaremanager/home'
   },
-  {
+  { 
     path: '/petcaremanager/',
     component: TabsPage,
     children: [
@@ -21,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Actividad.vue')
       },
       {
-        path: 'actividad/secundaria',
+        path: 'actividad/actividadadd',
         component: () => import('@/views/ActividadAdd.vue'),
       },
       // {
@@ -29,11 +29,11 @@ const routes: Array<RouteRecordRaw> = [
       //   component: () => import('@/views/ActividadAdd.vue'),
       // },
       {
-        path: 'tab2',
+        path: 'historialmedico',
         component: () => import('@/views/HistorialMedico.vue')
       },
       {
-        path: 'tab2/secundaria',
+        path: 'historialmedico/historialmedicoadd',
         component: () => import('@/views/HistorialMedicoAdd.vue'),
       },
       {
@@ -45,19 +45,19 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/HomeSecundaria.vue'),
       },
       {
-        path: 'tab4',
+        path: 'eventos',
         component: () => import('@/views/Eventos.vue')
       },
       {
-        path: 'tab4/secundaria',
+        path: 'eventos/eventosadd',
         component: () => import('@/views/EventosAdd.vue'),
       },
       {
-        path: 'tab5',
+        path: 'perfil',
         component: () => import('@/views/Perfil.vue')
       },
       {
-        path: 'tab5/secundaria',
+        path: 'perfil/cambiarcontraseña',
         component: () => import('@/views/CambiarContraseña.vue'),
       }
     ]

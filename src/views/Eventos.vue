@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <ion-button router-link="/tabs/tab4/secundaria">Añadir Evento</ion-button>
+      <ion-button router-link="/petcaremanager/eventos/eventosadd">Añadir Evento</ion-button>
     </ion-content>
   </ion-page>
 </template>

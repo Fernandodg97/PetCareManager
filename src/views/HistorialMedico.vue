@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <ion-button router-link="/tabs/tab2/secundaria">Añadir historial medico</ion-button>
+      <ion-button router-link="/petcaremanager/historialmedico/historialmedicoadd">Añadir historial medico</ion-button>
     </ion-content>
   </ion-page>
 </template>

@@ -8,7 +8,7 @@
           <ion-label>Actividad</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab2" href="/petcaremanager/tab2">
+        <ion-tab-button tab="historialmedico" href="/petcaremanager/historialmedico">
           <ion-icon aria-hidden="true" :icon="square" />
           <ion-label>Historial</ion-label>
         </ion-tab-button>
@@ -18,12 +18,12 @@
           <ion-label>Home</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab4" href="/petcaremanager/tab4">
+        <ion-tab-button tab="eventos" href="/petcaremanager/eventos">
           <ion-icon aria-hidden="true" :icon="square" />
           <ion-label>Eventos</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="tab5" href="/petcaremanager/tab5">
+        <ion-tab-button tab="perfil" href="/petcaremanager/perfil">
           <ion-icon aria-hidden="true" :icon="ellipse" />
           <ion-label>Perfil</ion-label>
         </ion-tab-button>

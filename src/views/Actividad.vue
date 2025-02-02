@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <ion-button router-link="/petcaremanager/actividad/secundaria">Añadir actividad</ion-button>
+      <ion-button router-link="/petcaremanager/actividad/actividadadd">Añadir actividad</ion-button>
     </ion-content>
   </ion-page>
 </template>
