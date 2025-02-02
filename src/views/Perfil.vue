@@ -7,6 +7,7 @@
     </ion-header>
     <!-- Contenido -->
     <ion-content>
+      <ion-button router-link="/petcaremanager/login" expand="block" aria-label="Cerrar Sesion">Cerrar Sesion</ion-button>
       <form>
         <!-- Foto -->
         
@@ -33,14 +34,14 @@
         <!-- Email -->
         <ion-item>
           <ion-label position="stacked">Email</ion-label>
-          <ion-input v-model="email" placeholder="Introduce el email" aria-label="Email" type="email"
+          <ion-input placeholder="Introduce el email" aria-label="Email" type="email"
             required></ion-input>
         </ion-item>
 
         <!-- Teléfono -->
         <ion-item>
           <ion-label position="stacked">Teléfono</ion-label>
-          <ion-input v-model="telefono" placeholder="Introduce el teléfono" aria-label="Teléfono" type="tel"
+          <ion-input placeholder="Introduce el teléfono" aria-label="Teléfono" type="tel"
             pattern="^[0-9]{9}$" required>
           </ion-input>
         </ion-item>
