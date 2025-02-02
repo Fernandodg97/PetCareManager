@@ -72,7 +72,15 @@
             router-link="/petcaremanager/eventos/"
             aria-label="Guardar historial médico"
           >
-            Añadir
+            Guardar
+          </ion-button>
+          <ion-button
+            color="danger"
+            expand="block"
+            router-link="/petcaremanager/eventos/"
+            aria-label="Eliminar historial médico"
+          >
+            Eliminar
           </ion-button>
         </div>
       </form>

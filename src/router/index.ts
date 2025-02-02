@@ -16,6 +16,7 @@ const routes: Array<RouteRecordRaw> = [
         path: '',
         redirect: 'home',
       },
+      // Actividad
       {
         path: 'actividad',
         component: () => import('@/views/Actividad.vue')
@@ -24,10 +25,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'actividad/actividadadd',
         component: () => import('@/views/ActividadAdd.vue'),
       },
-      // {
-      //   path: 'tab1/secundaria2',
-      //   component: () => import('@/views/ActividadAdd.vue'),
-      // },
+      {
+        path: '/actividad/:id',
+        component: () => import('@/views/ActividadId.vue'),
+      },
+      // Historial Medico
       {
         path: 'historialmedico',
         component: () => import('@/views/HistorialMedico.vue')
@@ -37,6 +39,11 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/HistorialMedicoAdd.vue'),
       },
       {
+        path: '/historialmedico/:id',
+        component: () => import('@/views/HistorialMedicoId.vue'),
+      },
+      // Home
+      {
         path: 'home',
         component: () => import('@/views/Home.vue')
       },
@@ -44,6 +51,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'home/secundaria',
         component: () => import('@/views/HomeSecundaria.vue'),
       },
+      // Eventos
       {
         path: 'eventos',
         component: () => import('@/views/Eventos.vue')
@@ -52,6 +60,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'eventos/eventosadd',
         component: () => import('@/views/EventosAdd.vue'),
       },
+      {
+        path: '/eventos/:id',
+        component: () => import('@/views/EventosId.vue'),
+      },
+      //Perfil
       {
         path: 'perfil',
         component: () => import('@/views/Perfil.vue')

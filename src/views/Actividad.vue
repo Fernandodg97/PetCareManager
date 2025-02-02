@@ -6,6 +6,17 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
+      <ion-list>
+        <!-- Navegación con parámetros -->
+        <ion-item
+          v-for="item in items"
+          :key="item.id"
+          :router-link="`/actividad/${item.id}`"
+          detail
+        >
+          {{ item.name }}
+        </ion-item>
+      </ion-list>
       <ion-button router-link="/petcaremanager/actividad/actividadadd">Añadir actividad</ion-button>
     </ion-content>
   </ion-page>
@@ -13,8 +24,15 @@
 
 
 <script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/vue';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonItem, IonList } from '@ionic/vue';
+import { useRouter } from 'vue-router';
+const items = [
+  { id:1, name: 'Actividad 1' },
+  { id:2, name: 'Actividad 2' },
+  { id:3, name: 'Actividad 3' }
+];
 </script>
+
 
 
 <style>

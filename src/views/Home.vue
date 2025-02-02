@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Home</ion-title>
+        <ion-titlpe>Pet Care Manager</ion-titlpe>
       </ion-toolbar>
     </ion-header>
     <ion-content>

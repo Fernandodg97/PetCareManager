@@ -38,7 +38,8 @@
 
       <!-- Botones -->
       <div class="buttons-container">
-        <ion-button color="primary" expand="block" router-link="/petcaremanager/actividad">Añadir</ion-button>
+        <ion-button color="primary" expand="block" router-link="/petcaremanager/actividad">Guardar</ion-button>
+        <ion-button color="danger" expand="block" router-link="/petcaremanager/actividad">Eliminar</ion-button>
       </div>
     </ion-content>
   </ion-page>
