@@ -28,6 +28,7 @@
           <ion-button color="primary" expand="block" router-link="/petcaremanager/login/registro">Registrarse</ion-button>
         </div>
       </ion-content>
+
     </ion-page>
   </template>
   
@@ -41,9 +42,7 @@
     IonButton,
     IonItem,
     IonLabel,
-    IonInput,
-    IonButtons,
-    IonBackButton,
+    IonInput
   } from "@ionic/vue";
   </script>
   

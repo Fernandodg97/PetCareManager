@@ -8,22 +8,23 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     redirect: '/petcaremanager/login'
   },
+  {
+    path: '/petcaremanager/login',
+    component: () => import('@/views/Login.vue')
+  },
+  {
+    path: '/petcaremanager/login/registro',
+    component: () => import('@/views/Registro.vue'),
+  },
   { 
     path: '/petcaremanager/',
     component: TabsPage,
     children: [
       {
         path: '',
-        redirect: 'login',
+        redirect: '/petcaremanager/login',
       },
-      {
-        path: 'login',
-        component: () => import('@/views/Login.vue')
-      },
-      {
-        path: 'login/registro',
-        component: () => import('@/views/Registro.vue'),
-      },
+      
       // Actividad
       {
         path: 'actividad',
@@ -82,6 +83,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/CambiarContraseña.vue'),
       }
     ]
+    
   }
 ]
 
