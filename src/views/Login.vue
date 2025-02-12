@@ -25,7 +25,7 @@
         <!-- Botones -->
         <div class="buttons-container">
           <ion-button color="primary" expand="block" router-link="/petcaremanager/home">Iniciar Sesion</ion-button>
-          <ion-button color="primary" expand="block" router-link="/login/registro">Registrarse</ion-button>
+          <ion-button color="primary" expand="block" router-link="/petcaremanager/login/registro">Registrarse</ion-button>
         </div>
       </ion-content>
 

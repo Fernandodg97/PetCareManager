@@ -40,7 +40,7 @@
   
         <!-- Botones -->
         <div class="buttons-container">
-          <ion-button color="primary" expand="block" router-link="/login">Registrarse</ion-button>
+          <ion-button color="primary" expand="block" router-link="/petcaremanager/login">Registrarse</ion-button>
         </div>
       </ion-content>
     </ion-page>

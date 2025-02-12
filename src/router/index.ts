@@ -5,14 +5,14 @@ import TabsPage from '../views/TabsPage.vue';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/login'
+    redirect: '/petcaremanager/login'
   },
   {
-    path: '/login',
+    path: '/petcaremanager/login',
     component: () => import('@/views/Login.vue')
   },
   {
-    path: '/login/registro',
+    path: '/petcaremanager/login/registro',
     component: () => import('@/views/Registro.vue')
   },
   { 
