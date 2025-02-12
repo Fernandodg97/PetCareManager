@@ -28,6 +28,10 @@
           <ion-label>Perfil</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
+      
+      <!-- Renderiza las rutas de las páginas dentro de los tabs -->
+      <ion-router-outlet />
+      
     </ion-tabs>
   </ion-page>
 </template>

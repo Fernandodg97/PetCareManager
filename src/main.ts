@@ -29,7 +29,9 @@ import '@ionic/vue/css/display.css';
 
 /* @import '@ionic/vue/css/palettes/dark.always.css'; */
 /* @import '@ionic/vue/css/palettes/dark.class.css'; */
-import '@ionic/vue/css/palettes/dark.system.css';
+
+/* 🚨 Elimina o comenta esta línea para evitar el modo oscuro */
+// import '@ionic/vue/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
@@ -39,5 +41,6 @@ const app = createApp(App)
   .use(router);
 
 router.isReady().then(() => {
+  document.body.classList.remove('dark'); // 🚨 Asegura que no se aplique el modo oscuro
   app.mount('#app');
 });

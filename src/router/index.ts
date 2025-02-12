@@ -1,20 +1,19 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
-import TabsPage from '../views/TabsPage.vue'
-
+import TabsPage from '../views/TabsPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/petcaremanager/login'
+    redirect: '/login'
   },
   {
-    path: '/petcaremanager/login',
+    path: '/login',
     component: () => import('@/views/Login.vue')
   },
   {
-    path: '/petcaremanager/login/registro',
-    component: () => import('@/views/Registro.vue'),
+    path: '/login/registro',
+    component: () => import('@/views/Registro.vue')
   },
   { 
     path: '/petcaremanager/',
@@ -22,9 +21,8 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '',
-        redirect: '/petcaremanager/login',
+        redirect: 'home' // Redirigir a home dentro de los tabs
       },
-      
       // Actividad
       {
         path: 'actividad',
@@ -32,24 +30,24 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'actividad/actividadadd',
-        component: () => import('@/views/ActividadAdd.vue'),
+        component: () => import('@/views/ActividadAdd.vue')
       },
       {
-        path: '/actividad/:id',
-        component: () => import('@/views/ActividadId.vue'),
+        path: 'actividad/:id',
+        component: () => import('@/views/ActividadId.vue')
       },
-      // Historial Medico
+      // Historial Médico
       {
         path: 'historialmedico',
         component: () => import('@/views/HistorialMedico.vue')
       },
       {
         path: 'historialmedico/historialmedicoadd',
-        component: () => import('@/views/HistorialMedicoAdd.vue'),
+        component: () => import('@/views/HistorialMedicoAdd.vue')
       },
       {
-        path: '/historialmedico/:id',
-        component: () => import('@/views/HistorialMedicoId.vue'),
+        path: 'historialmedico/:id',
+        component: () => import('@/views/HistorialMedicoId.vue')
       },
       // Home
       {
@@ -58,7 +56,7 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'home/secundaria',
-        component: () => import('@/views/HomeSecundaria.vue'),
+        component: () => import('@/views/HomeSecundaria.vue')
       },
       // Eventos
       {
@@ -67,31 +65,28 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'eventos/eventosadd',
-        component: () => import('@/views/EventosAdd.vue'),
+        component: () => import('@/views/EventosAdd.vue')
       },
       {
-        path: '/eventos/:id',
-        component: () => import('@/views/EventosId.vue'),
+        path: 'eventos/:id',
+        component: () => import('@/views/EventosId.vue')
       },
-      //Perfil
+      // Perfil
       {
         path: 'perfil',
         component: () => import('@/views/Perfil.vue')
       },
       {
         path: 'perfil/cambiarcontraseña',
-        component: () => import('@/views/CambiarContraseña.vue'),
+        component: () => import('@/views/CambiarContraseña.vue')
       }
     ]
-    
   }
-]
-
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes
-})
+});
 
-
-export default router
+export default router;

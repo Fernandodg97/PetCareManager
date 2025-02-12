@@ -11,7 +11,7 @@
         <ion-item
           v-for="item in items"
           :key="item.id"
-          :router-link="`/historialmedico/${item.id}`"
+          :router-link="`historialmedico/${item.id}`"
           detail
         >
           {{ item.name }}

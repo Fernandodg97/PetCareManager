@@ -13,7 +13,7 @@
           
           <ion-list class="lista-actividades">
             <ion-card v-for="item in items" :key="item.id" class="actividad-card">
-              <ion-item :router-link="`/actividad/${item.id}`" detail class="actividad-item">
+              <ion-item :router-link="`actividad/${item.id}`" detail class="actividad-item">
                 <div class="actividad-info">
                   <p class="actividad-nombre">{{ item.name }}</p>
                   <p class="actividad-fecha">{{ item.fecha }}</p>

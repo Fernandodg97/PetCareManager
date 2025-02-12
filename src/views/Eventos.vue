@@ -11,7 +11,7 @@
         <ion-item
           v-for="item in items"
           :key="item.id"
-          :router-link="`/eventos/${item.id}`"
+          :router-link="`eventos/${item.id}`"
           detail
         >
           {{ item.name }}
