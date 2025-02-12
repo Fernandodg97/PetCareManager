@@ -57,8 +57,7 @@ ion-content {
 
 /* Contenedor externo */
 .contenedorExterno {
-  background: #ffffff;
-  padding: 20px;
+  background: #809fff;
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   width: 90%;
