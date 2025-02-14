@@ -80,6 +80,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'perfil/cambiarcontraseña',
         component: () => import('@/views/CambiarContraseña.vue')
       }
+      ,
+      {
+        path: 'perfil/cambiarfotoperfil',
+        component: () => import('@/views/CambiarFotoPerfil.vue')
+      }
     ]
   }
 ];

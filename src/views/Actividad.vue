@@ -7,25 +7,24 @@
     </ion-header>
 
     <ion-content>
-      <div class="contenedorExterno">
-        <div class="contenedorInterno">
-          <h1>Actividad</h1>
-          
-          <ion-list class="lista-actividades">
-            <ion-card v-for="item in items" :key="item.id" class="actividad-card">
-              <ion-item :router-link="`actividad/${item.id}`" detail class="actividad-item">
+      <div class="contenedor">
+        <h1>Actividad</h1>
+        
+        <ion-list class="lista-actividades">
+          <ion-card v-for="(item, index) in items" :key="item.id" :class="{'actividad-card-azul': index % 2 === 0, 'actividad-card-blanco': index % 2 !== 0}">
+            <ion-item :router-link="`actividad/${item.id}`" detail class="actividad-item">
+              <div class="actividad-grid">
                 <div class="actividad-info">
                   <p class="actividad-nombre">{{ item.name }}</p>
                   <p class="actividad-fecha">{{ item.fecha }}</p>
                 </div>
                 <div class="actividad-hora">{{ item.hora }}</div>
                 <div class="actividad-mascota">{{ item.mascota }}</div>
-              </ion-item>
-            </ion-card>
-          </ion-list>
-          
-        </div>
-
+              </div>
+            </ion-item>
+          </ion-card>
+        </ion-list>
+        
         <ion-button expand="block" router-link="/petcaremanager/actividad/actividadadd" class="boton-anadir">
           Añadir
         </ion-button>
@@ -45,56 +44,66 @@ const items = [
 </script>
 
 <style scoped>
-/* Estilos generales */
+
 ion-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 16px;
-  background: #a2b3ff; /* Fondo azul claro */
+  height: 100vh; /* Asegura el alto completo */
 }
 
-/* Contenedor externo */
-.contenedorExterno {
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: #809fff;
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   width: 90%;
-  max-width: 350px;
-}
-
-/* Contenedor interno */
-.contenedorInterno {
-  background: #809FFF;
   padding: 16px;
-  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* Título */
 h1 {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 12px;
 }
 
-/* Tarjetas de actividad */
-.actividad-card {
-  background: #f5f6ff;
+.lista-actividades {
+  width: 100%;
   border-radius: 12px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.actividad-card {
+  border-radius: 12px;
   margin-bottom: 10px;
 }
 
-/* Estilo de cada actividad */
+.actividad-card-azul {
+  background-color: #809FFF;
+  color: white;
+}
+
 .actividad-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 12px;
 }
 
-/* Información de la actividad */
+.actividad-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
 .actividad-info {
   display: flex;
   flex-direction: column;
@@ -110,18 +119,18 @@ h1 {
   color: gray;
 }
 
-/* Hora y mascota */
 .actividad-hora {
   font-size: 14px;
   font-weight: bold;
+  text-align: center;
 }
 
 .actividad-mascota {
   font-size: 14px;
-  color: white;
+  text-align: center;
+  font-weight: bold;
 }
 
-/* Botón de añadir */
 .boton-anadir {
   margin-top: 16px;
   color: white;

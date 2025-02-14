@@ -13,75 +13,68 @@
     <!-- Contenido -->
     <ion-content>
       <form>
-        <!-- Mascota -->
-        <ion-item>
-          <ion-label position="stacked">Mascota</ion-label>
-          <ion-input
-            placeholder="Introduce el nombre de la mascota"
-            aria-label="Nombre de la mascota"
-          ></ion-input>
-        </ion-item>
+        <div class="content-container">
+          <!-- Mascota -->
+          <ion-item>
+            <ion-label position="stacked" class="custom-label">Mascota</ion-label>
+            <ion-input
+              placeholder="Introduce el nombre de la mascota"
+              aria-label="Nombre de la mascota"
+              class="custom-input"
+            ></ion-input>
+          </ion-item>
 
-        <!-- Intervención -->
-        <ion-item>
-          <ion-label position="stacked">Evento</ion-label>
-          <ion-input
-            placeholder="Describe la intervención realizada"
-            aria-label="Descripción de la intervención"
-          ></ion-input>
-        </ion-item>
+          <!-- Intervención -->
+          <ion-item>
+            <ion-label position="stacked" class="custom-label">Evento</ion-label>
+            <ion-input
+              placeholder="Describe la intervención realizada"
+              aria-label="Descripción de la intervención"
+              class="custom-input"
+            ></ion-input>
+          </ion-item>
 
-        <!-- Fecha -->
-        <ion-item>
-          <ion-label position="stacked">Fecha</ion-label>
-          <ion-input type="date" aria-label="Fecha de la intervención"></ion-input>
-          <ion-input type="time" aria-label="Fecha de la intervención"></ion-input>
-        </ion-item>
+          <!-- Fecha -->
+          <ion-item>
+            <ion-label position="stacked" class="custom-label">Fecha</ion-label>
+            <ion-input type="date" aria-label="Fecha de la intervención" class="custom-input"></ion-input>
+            <ion-label position="stacked" class="custom-label">Hora</ion-label>
+            <ion-input type="time" aria-label="Hora de la intervención" class="custom-input"></ion-input>
+          </ion-item>
 
-        <!-- Ubicación -->
-        <ion-item>
-          <ion-label position="stacked">Ubicación</ion-label>
-          <ion-input
-            placeholder="Selecciona la ubicación"
-            readonly
-            aria-label="Ubicación del servicio"
-            v-model="ubicacion"
-          ></ion-input>
-          <ion-button
-            slot="end"
-            color="primary"
-            @click="openMap"
-            aria-label="Seleccionar ubicación"
-          >
-            Seleccionar
-          </ion-button>
-        </ion-item>
+          <!-- Ubicación -->
+          <ion-item>
+            <ion-label position="stacked" class="custom-label">Ubicación</ion-label>
+            <ion-input
+              placeholder="Selecciona la ubicación"
+              readonly
+              aria-label="Ubicación del servicio"
+              v-model="ubicacion"
+              class="custom-input"
+            ></ion-input>
+            <ion-button
+              slot="end"
+              color="primary"
+              @click="openMap"
+              aria-label="Seleccionar ubicación"
+            >
+              Seleccionar
+            </ion-button>
+          </ion-item>
 
-        <!-- Recordatorio -->
-        <ion-item>
-          <ion-label position="stacked">Recordatorio</ion-label>
-          <ion-input type="date" aria-label="Fecha de la intervención"></ion-input>
-          <ion-input type="time" aria-label="Fecha de la intervención"></ion-input>
-        </ion-item>
+          <!-- Recordatorio -->
+          <ion-item>
+            <ion-label position="stacked" class="custom-label">Recordatorio</ion-label>
+            <ion-input type="date" aria-label="Fecha de la intervención" class="custom-input"></ion-input>
+            <ion-label position="stacked" class="custom-label">Hora</ion-label>
+            <ion-input type="time" aria-label="Hora de la intervención" class="custom-input"></ion-input>
+          </ion-item>
 
-        <!-- Botones -->
-        <div class="buttons-container">
-          <ion-button
-            color="primary"
-            expand="block"
-            router-link="/petcaremanager/eventos/"
-            aria-label="Guardar historial médico"
-          >
-            Guardar
-          </ion-button>
-          <ion-button
-            color="danger"
-            expand="block"
-            router-link="/petcaremanager/eventos/"
-            aria-label="Eliminar historial médico"
-          >
-            Eliminar
-          </ion-button>
+          <!-- Botones -->
+          <div class="buttons-container">
+            <ion-button color="primary" expand="block" router-link="/petcaremanager/eventos/">Guardar</ion-button>
+            <ion-button color="danger" expand="block" router-link="/petcaremanager/eventos/">Eliminar</ion-button>
+          </div>
         </div>
       </form>
     </ion-content>
@@ -109,31 +102,33 @@ const ubicacion = ref("");
 
 // Función para abrir Google Maps con la ubicación
 const openMap = () => {
-  // Si la ubicación es texto (dirección)
   const mapaUrl = `https://www.google.com/maps?q=${encodeURIComponent(ubicacion.value)}`;
-  
-  // Si la ubicación es en coordenadas (por ejemplo, latitud, longitud)
-  // const mapaUrl = "https://www.google.com/maps?q=40.7128,-74.0060"; // Nueva York
-
   window.open(mapaUrl, "_blank");
 };
 </script>
 
 <style scoped>
-ion-content {
-  padding: 16px;
+.content-container {
+  margin: 0 16px; /* Margen lateral */
+}
+
+.custom-label {
+  color: #A0A0A0; /* Texto gris clarito para los labels */
+}
+
+.custom-input {
+  border-bottom: 2px solid #809fff; /* Línea azul debajo del input */
+  padding-bottom: 4px;
 }
 
 .buttons-container {
   margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: space-between; /* Botones alineados uno al lado del otro */
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.buttons-container ion-button {
+  flex: 1;
+  margin: 0 5px; /* Espaciado entre los botones */
 }
 </style>
