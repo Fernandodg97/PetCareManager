@@ -89,6 +89,10 @@ h1 {
   color: white;
 }
 
+.actividad-card-azul ion-item{
+  --background: #809FFF
+}
+
 .actividad-item {
   display: flex;
   justify-content: center;

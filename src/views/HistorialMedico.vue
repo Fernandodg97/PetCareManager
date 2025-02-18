@@ -30,7 +30,7 @@
         </ion-button>
       </div>
     </ion-content>
-  </ion-page>Cambiar contraseña
+  </ion-page>
 </template>
 
 <script setup lang="ts">

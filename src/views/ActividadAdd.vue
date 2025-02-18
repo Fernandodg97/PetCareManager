@@ -9,6 +9,7 @@
         <ion-title>Actividad</ion-title>
       </ion-toolbar>
     </ion-header>
+    
 
     <!-- Contenido -->
     <ion-content>

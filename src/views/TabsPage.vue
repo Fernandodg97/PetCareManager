@@ -14,7 +14,6 @@
         </ion-tab-button>
 
         <ion-tab-button tab="home" href="/petcaremanager/home">
-          <!-- Foto redonda en lugar de icono -->
           <img src="../assets/home.png" alt="Home" class="profile-image" />
           <ion-label>Home</ion-label>
         </ion-tab-button>
