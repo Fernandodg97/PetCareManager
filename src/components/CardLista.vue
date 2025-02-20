@@ -1,5 +1,4 @@
 <template>
-    <ion-content>
         <div class="contenedor">
             <h1>{{titulo}}</h1>
             <ion-list class="lista-actividades">
@@ -18,7 +17,6 @@
                 </ion-card>
             </ion-list>
         </div>
-    </ion-content>
 </template>
 
 <script setup lang="ts">

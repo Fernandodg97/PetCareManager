@@ -1,6 +1,5 @@
 <template>
-    <router-link :to="`home/${id}`">
-        <ion-content>
+    <!-- <router-link :to="`home/${id}`"> -->
             <div class="contenedor">
                 <ion-list class="lista-mascotas">
                     <img :src="foto" alt="Foto de la mascota" class="mascota-image" />
@@ -18,8 +17,7 @@
                     </ion-card>
                 </ion-list>
             </div>
-        </ion-content>
-    </router-link>
+    <!-- </router-link> -->
 </template>
 
 <script setup lang="ts">
@@ -50,12 +48,7 @@ defineProps<{
     background: #809fff;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 90%;
     padding: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 h1 {

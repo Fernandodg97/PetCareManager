@@ -55,8 +55,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Home.vue')
       },
       {
-        path: 'home/secundaria',
-        component: () => import('@/views/HomeSecundaria.vue')
+        path: 'home/mascotaadd',
+        component: () => import('@/views/MascotaAdd.vue')
       },
       {
         path: 'home/:id',
