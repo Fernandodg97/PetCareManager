@@ -45,6 +45,7 @@ import { ellipse, square, triangle } from 'ionicons/icons';
 <style scoped>
 /* Estilo para el fondo del tab-bar */
 .custom-tab-bar {
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
   background-color: #809fff;
 }
 ion-tab-button{

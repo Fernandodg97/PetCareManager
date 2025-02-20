@@ -1,18 +1,10 @@
 <template>
   <ion-page>
     <!-- Encabezado -->
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button text="Atrás"></ion-back-button>
-        </ion-buttons>
-        <ion-title>Actividad</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    
-
+    <Encabezado :btn="true"/>
     <!-- Contenido -->
     <ion-content>
+      <ion-title>Añadir Actividad</ion-title>
       <div class="content-container">
         <!-- Mascota -->
         <ion-item>
@@ -61,6 +53,7 @@ import {
   IonButtons,
   IonBackButton,
 } from "@ionic/vue";
+import Encabezado from '@/components/Encabezado.vue';
 </script>
 
 <style scoped>

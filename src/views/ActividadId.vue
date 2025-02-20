@@ -1,17 +1,11 @@
 <template>
   <ion-page>
     <!-- Encabezado -->
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button text="Atrás"></ion-back-button>
-        </ion-buttons>
-        <ion-title>Editar Actividad</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <Encabezado :btn="true"/>
 
     <!-- Contenido -->
     <ion-content v-if="actividad">
+      <ion-title>Editar Actividad</ion-title>
       <div class="content-container">
         <ion-item>
           <ion-label position="stacked" class="custom-label">Mascota</ion-label>
@@ -61,6 +55,7 @@ import {
   IonButtons,
   IonBackButton,
 } from "@ionic/vue";
+import Encabezado from '@/components/Encabezado.vue';
 import { useRoute, useRouter } from "vue-router";
 import { ref } from "vue";
 

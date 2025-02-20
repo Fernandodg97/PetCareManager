@@ -58,6 +58,10 @@ const routes: Array<RouteRecordRaw> = [
         path: 'home/secundaria',
         component: () => import('@/views/HomeSecundaria.vue')
       },
+      {
+        path: 'home/:id',
+        component: () => import('@/views/MascotaId.vue')
+      },
       // Eventos
       {
         path: 'eventos',
@@ -77,7 +81,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Perfil.vue')
       },
       {
-        path: 'perfil/cambiarcontraseña',
+        path: 'perfil/cambiarcontrasena',
         component: () => import('@/views/CambiarContraseña.vue')
       }
       ,

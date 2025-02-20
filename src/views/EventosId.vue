@@ -1,17 +1,11 @@
 <template>
   <ion-page>
     <!-- Encabezado -->
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button text="Atrás"></ion-back-button>
-        </ion-buttons>
-        <ion-title>Evento</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <Encabezado :btn="true"/>
 
     <!-- Contenido -->
     <ion-content>
+      <ion-title>Evento</ion-title>
       <form>
         <div class="content-container">
           <!-- Mascota -->
@@ -96,7 +90,7 @@ import {
   IonBackButton,
 } from "@ionic/vue";
 import { ref } from "vue";
-
+import Encabezado from '@/components/Encabezado.vue';
 // Variable reactiva para la ubicación
 const ubicacion = ref("");
 

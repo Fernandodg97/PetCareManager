@@ -1,13 +1,10 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Perfil</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <Encabezado/>
 
     <!-- Contenido -->
     <ion-content>
+      <ion-title>Perfil</ion-title>
       <div class="content-container">
         <!-- Botón Cerrar Sesión (arriba derecha, en negro) -->
         <div class="logout-container">
@@ -101,7 +98,7 @@
             <ion-button
               color="primary"
               expand="block"
-              router-link="/petcaremanager/perfil/cambiarcontraseña"
+              router-link="/petcaremanager/perfil/cambiarcontrasena"
               aria-label="Cambiar contraseña"
             >
               Cambiar contraseña
@@ -123,7 +120,8 @@
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonItem } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonItem, IonLabel, IonInput } from '@ionic/vue';
+import Encabezado from '@/components/Encabezado.vue';
 </script>
 
 <style scoped>

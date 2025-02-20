@@ -1,42 +1,17 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Eventos</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
+    <Encabezado/>
     <ion-content>
-      <div class="contenedor">
-        <h1>Eventos</h1>
-        
-        <ion-list class="lista-actividades">
-          <ion-card v-for="(item, index) in items" :key="item.id" :class="{'actividad-card-azul': index % 2 === 0, 'actividad-card-blanco': index % 2 !== 0}">
-            <ion-item :router-link="`eventos/${item.id}`" detail class="actividad-item">
-              <div class="actividad-grid">
-                <div class="actividad-info">
-                  <p class="actividad-nombre">{{ item.name }}</p>
-                  <p class="actividad-fecha">{{ item.fecha }}</p>
-                </div>
-                <div class="actividad-hora">{{ item.hora }}</div>
-                <div class="actividad-mascota">{{ item.mascota }}</div>
-              </div>
-            </ion-item>
-          </ion-card>
-        </ion-list>
-        
-        <ion-button expand="block" router-link="/petcaremanager/eventos/eventosadd" class="boton-anadir">
-          Añadir
-        </ion-button>
-      </div>
+      <ActividadLista titulo='Eventos' :items="listaDeEventos" addButtonLink="/petcaremanager/eventos/eventosadd" ruta="/petcaremanager/eventos"/>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonItem, IonList, IonCard } from '@ionic/vue';
-
-const items = [
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import ActividadLista from '@/components/ActividadLista.vue';
+import Encabezado from '@/components/Encabezado.vue';
+const listaDeEventos = [
   { id: 1, name: 'Vacunacion', mascota: 'Valkyria', fecha: '18/01/2020', hora: '11:30h' },
   { id: 2, name: 'Revision', mascota: 'Valkyria', fecha: '18/01/2020', hora: '13:00h' },
   { id: 3, name: 'Peluquieria', mascota: 'Lua', fecha: '18/01/2020', hora: '13:00h' }
@@ -44,13 +19,6 @@ const items = [
 </script>
 
 <style scoped>
-
-ion-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Asegura el alto completo */
-}
 
 .contenedor {
   display: flex;

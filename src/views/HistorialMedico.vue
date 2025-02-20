@@ -1,56 +1,26 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Historial Medico</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
+    <Encabezado/>
     <ion-content>
-      <div class="contenedor">
-        <h1>Historial Medico</h1>
-        
-        <ion-list class="lista-actividades">
-          <ion-card v-for="(item, index) in items" :key="item.id" :class="{'actividad-card-azul': index % 2 === 0, 'actividad-card-blanco': index % 2 !== 0}">
-            <ion-item :router-link="`historialmedico/${item.id}`" detail class="actividad-item">
-              <div class="actividad-grid">
-                <div class="actividad-info">
-                  <p class="actividad-nombre">{{ item.name }}</p>
-                  <p class="actividad-fecha">{{ item.fecha }}</p>
-                </div>
-                <div class="actividad-hora">{{ item.tratamiento }}</div>
-                <div class="actividad-mascota">{{ item.mascota }}</div>
-              </div>
-            </ion-item>
-          </ion-card>
-        </ion-list>
-        
-        <ion-button expand="block" router-link="/petcaremanager/historialmedico/historialmedicoadd" class="boton-anadir">
-          Añadir
-        </ion-button>
-      </div>
+      <ActividadLista titulo='Historial Medico' :items="listaDeHistorialmedico" addButtonLink="/petcaremanager/historialmedico/historialmedicoadd" ruta="/petcaremanager/historialmedico"/>
+
     </ion-content>
   </ion-page>
 </template>
 
-<script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonItem, IonList, IonCard } from '@ionic/vue';
 
-const items = [
-  { id: 1, name: 'Paseo', mascota: 'Valkyria', fecha: '18/01/2020', tratamiento: 'Rabia' },
-  { id: 2, name: 'Comida', mascota: 'Valkyria', fecha: '18/01/2020', tratamiento: 'Castracion' },
-  { id: 3, name: 'Comida', mascota: 'Lua', fecha: '18/01/2020', tratamiento: '1ª Trivalente' }
+<script setup lang="ts">
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import ActividadLista from '@/components/ActividadLista.vue';
+import Encabezado from '@/components/Encabezado.vue';
+const listaDeHistorialmedico = [
+  { id: 1, name: 'Paseo', hora:'', mascota: 'Valkyria', fecha: '18/01/2020', tratamiento: 'Rabia' },
+  { id: 2, name: 'Comida', hora:'', mascota: 'Valkyria', fecha: '18/01/2020', tratamiento: 'Castracion' },
+  { id: 3, name: 'Comida', hora:'', mascota: 'Lua', fecha: '18/01/2020', tratamiento: '1ª Trivalente' }
 ];
 </script>
 
 <style scoped>
-
-ion-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Asegura el alto completo */
-}
 
 .contenedor {
   display: flex;

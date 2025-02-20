@@ -1,17 +1,11 @@
 <template>
   <ion-page>
     <!-- Encabezado -->
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button text="Atrás"></ion-back-button>
-        </ion-buttons>
-        <ion-title>Editar Contraseña</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <Encabezado :btn="true"/>
 
     <!-- Contenido -->
     <ion-content>
+      <ion-title>Editar Contraseña</ion-title>
       <div class="content-container">
         <form>
           <!-- Contraseña Actual -->
@@ -85,7 +79,7 @@ import {
   IonBackButton,
 } from "@ionic/vue";
 import { ref } from "vue";
-
+import Encabezado from '@/components/Encabezado.vue';
 // Variables reactivas para las contraseñas
 const currentPassword = ref("");
 const newPassword = ref("");

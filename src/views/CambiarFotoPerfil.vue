@@ -1,17 +1,11 @@
 <template>
   <ion-page>
     <!-- Encabezado -->
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button text="Atrás"></ion-back-button>
-        </ion-buttons>
-        <ion-title>Editar Foto</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <Encabezado :btn="true"/>
 
     <!-- Contenido -->
     <ion-content>
+      <ion-title>Editar Foto</ion-title>
       <div class="content-container">
         <form>
           <!-- Foto de Perfil -->
@@ -59,9 +53,9 @@
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton,IonBackButton, IonItem, IonLabel } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton,IonBackButton, IonButtons } from '@ionic/vue';
 import { ref } from 'vue';
-
+import Encabezado from '@/components/Encabezado.vue';
 // Referencia al input de archivo
 const fileInput = ref<HTMLInputElement | null>(null);
 
