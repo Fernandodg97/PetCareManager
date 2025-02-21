@@ -1,24 +1,27 @@
 <template>
     <ion-page>
         <Encabezado :btn="true" />
-        <ion-content>
+        <ion-content v-if="mascotaSeleccionada">
             <div class="contenedor">
                 <ion-list class="lista-mascotas">
-                    <img :src="mascotas.foto" alt="Foto de la mascota" class="mascota-image" />
+                    <img :src="mascotaSeleccionada.foto" alt="Foto de la mascota" class="mascota-image" />
                     <ion-card>
                         <ion-item>
                             <div class="mascota-grid">
-                                <div class="mascota-nombre">{{ mascotas.mascota }}</div>
+                                <div class="mascota-nombre">{{ mascotaSeleccionada.mascota }}</div>
                                 <div class="mascota-info">
-                                    <p class="mascota-raza">Raza: {{ mascotas.raza }}</p>
+                                    <p class="mascota-raza">Raza: {{ mascotaSeleccionada.raza }}</p>
                                     <p> | </p>
-                                    <p class="mascota-fecha">{{ mascotas.fecha }}</p>
+                                    <p class="mascota-fecha">{{ mascotaSeleccionada.fecha }}</p>
                                 </div>
                             </div>
                         </ion-item>
                     </ion-card>
                 </ion-list>
             </div>
+        </ion-content>
+        <ion-content v-else>
+            <p>Mascota no encontrada</p>
         </ion-content>
     </ion-page>
 </template>
@@ -27,7 +30,7 @@
 import { IonContent, IonList, IonCard, IonItem, IonPage } from '@ionic/vue';
 import { ref } from 'vue';
 import Encabezado from '@/components/Encabezado.vue';
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 
 // Obtener el parámetro de la URL
 const route = useRoute();
@@ -37,8 +40,12 @@ const id = Number(route.params.id);
 const mascotas = ref([
     { id: 1, raza: "Bulldog", fecha: "2025-02-14", mascota: "Rex", foto: "/src/assets/rex.png" },
     { id: 2, raza: "Labrador", fecha: "2025-02-15", mascota: "Max", foto: "/src/assets/rex.png" }
-]).value.find(act => act.id === id);
+]);
+
+// Buscar la mascota seleccionada por su id
+const mascotaSeleccionada = mascotas.value.find(mascota => mascota.id === id);
 </script>
+
 
 <style scoped>
 /* ion-content {

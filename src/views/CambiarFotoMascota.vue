@@ -106,7 +106,7 @@ ion-content {
 .profile-photo {
   width: 300px;
   height: 300px;
-  border-radius: 10%;
+  border-radius: 50%;
   object-fit: cover;
   margin-bottom: 10px;
 }

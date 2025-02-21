@@ -153,9 +153,9 @@ ion-content {
 }
 
 .profile-photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
   object-fit: cover;
   margin-bottom: 10px;
 }

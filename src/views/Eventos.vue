@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonContent, IonPage } from '@ionic/vue';
 import ActividadLista from '@/components/ActividadLista.vue';
 import Encabezado from '@/components/Encabezado.vue';
 const listaDeEventos = [

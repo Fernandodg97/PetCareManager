@@ -2,13 +2,16 @@
   <ion-page>
     <Encabezado />
     <ion-content>
-      <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
-        <CardMascota id="1" raza="Bulldog" fecha="2025-02-14" mascota="Rex" foto="/src/assets/rex.png" ruta="/petcaremanager/home"/>
-        <CardMascota id="1" raza="Labrador" fecha="2025-02-15" mascota="Max" foto="/src/assets/rex.png" ruta="/petcaremanager/home"/>
+      <div class="container">
+        <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
 
-        <!-- <CardLista titulo='Actividad' :items="listaDeActividades" />
-      <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" />
-      <CardLista titulo='Eventos' :items="listaDeEventos" /> -->
+        <CardMascota :id="1" raza="Bulldog" fecha="2025-02-14" mascota="Rex" foto="/src/assets/rex.png" />
+        <CardMascota :id="2" raza="Labrador" fecha="2025-02-15" mascota="Max" foto="/src/assets/rex.png" />
+
+        <CardLista titulo='Actividad' :items="listaDeActividades" ruta="actividad" />
+        <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" ruta="historialmedico" />
+        <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
+      </div>
     </ion-content>
   </ion-page>
 </template>
@@ -38,16 +41,23 @@ const listaDeEventos = [
 </script>
 
 <style>
-.aaa{
-  
-}
-ion-content {
-  text-align: center;
-  justify-content: center;
+.container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  /* Ocupar todo el ancho disponible */
+  max-width: 500px;
+  /* Evitar que los elementos sean demasiado anchos */
+  margin: 0 auto;
+  /* Centrar horizontalmente */
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 ion-button {
-  margin-top: 50px
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 </style>

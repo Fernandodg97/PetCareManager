@@ -1,27 +1,29 @@
 <template>
-        <div class="contenedor">
-            <h1>{{titulo}}</h1>
-            <ion-list class="lista-actividades">
-                <ion-card v-for="(item, index) in items" :key="item.id"
-                    :class="{ 'actividad-card-azul': index % 2 === 0, 'actividad-card-blanco': index % 2 !== 0 }">
-                    <ion-item>
-                        <div class="actividad-grid">
-                            <div class="actividad-info">
-                                <p class="actividad-nombre">{{ item.name }}</p>
-                                <p class="actividad-fecha">{{ item.fecha }}</p>
-                            </div>
-                            <div class="actividad-hora">{{ item.hora }}</div>
-                            <div class="actividad-mascota">{{ item.mascota }}</div>
+    <router-link :to="ruta">
+    <div class="contenedor" >
+        
+        <h1>{{ titulo }}</h1>
+        <ion-list class="lista-actividades">
+            <ion-card v-for="(item, index) in items" :key="item.id"
+                :class="{ 'actividad-card-azul': index % 2 === 0, 'actividad-card-blanco': index % 2 !== 0 }">
+                <ion-item>
+                    <div class="actividad-grid">
+                        <div class="actividad-info">
+                            <p class="actividad-nombre">{{ item.name }}</p>
+                            <p class="actividad-fecha">{{ item.fecha }}</p>
                         </div>
-                    </ion-item>
-                </ion-card>
-            </ion-list>
-        </div>
+                        <div class="actividad-hora">{{ item.hora }}</div>
+                        <div class="actividad-mascota">{{ item.mascota }}</div>
+                    </div>
+                </ion-item>
+            </ion-card>
+        </ion-list>
+    </div>
+</router-link>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonList, IonCard, IonItem, IonButton } from '@ionic/vue';
-
+import { IonList, IonCard, IonItem } from '@ionic/vue';
 import { defineProps } from 'vue';
 
 interface Actividad {
@@ -35,13 +37,17 @@ interface Actividad {
 defineProps<{
     titulo: string;
     items: Actividad[];
+    ruta: string;
 }>();
 </script>
 
 <style scoped>
-/* ion-content{
-    height: 55%;
-} */
+a {
+    all: unset;
+    width: 90%;
+    touch-action: manipulation;
+    cursor: pointer;
+}
 .contenedor {
     display: flex;
     flex-direction: column;
@@ -50,48 +56,45 @@ defineProps<{
     background: #809fff;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 90%;
+    width: 100%;
     padding: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 10px auto; /* Centrar el contenedor */
 }
 
 h1 {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 12px;
+    color: #0a0a0a;
+    text-align: center;
+}
+
+ion-card{
+    margin: 0px;
 }
 
 .lista-actividades {
-    width: 100%;
+    width: 100%; 
     border-radius: 12px;
+    padding: 0px;
 }
 
-.actividad-card {
-    border-radius: 12px;
-    margin-bottom: 10px;
-}
-
-.actividad-card-azul ion-item, .actividad-card-blanco ion-item{
-    --inner-border-width: 0 0 0px 0;
-}
-
+/* Colores alternos para cada tarjeta */
 .actividad-card-azul {
-    background-color: #809FFF;
+    background: rgba(128, 159, 255, 0.50);
     color: white;
 }
 
-.actividad-card-azul ion-item {
-    --background: #809FFF;
+.actividad-card-blanco {
+    background-color: #ffffff;
+    color: #333;
 }
 
-.actividad-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
+/* Eliminar bordes internos en ion-item */
+.actividad-card-azul ion-item, 
+.actividad-card-blanco ion-item {
+    --inner-border-width: 0 0 0px 0;
+    --background: transparent;
 }
 
 .actividad-grid {
@@ -110,22 +113,17 @@ h1 {
 
 .actividad-nombre {
     font-weight: bold;
+    font-size: 16px;
 }
 
 .actividad-fecha {
     font-size: 12px;
 }
 
-.actividad-hora {
+.actividad-hora, .actividad-mascota {
     font-size: 14px;
     font-weight: bold;
     text-align: center;
-}
-
-.actividad-mascota {
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
 }
 
 .boton-anadir {

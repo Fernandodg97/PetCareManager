@@ -61,7 +61,6 @@ import { ref } from "vue";
 
 // Obtener el parámetro de la URL
 const route = useRoute();
-const router = useRouter();
 const id = Number(route.params.id);
 
 // Array de actividades

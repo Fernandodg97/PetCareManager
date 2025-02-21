@@ -15,13 +15,18 @@ const routes: Array<RouteRecordRaw> = [
     path: '/petcaremanager/login/registro',
     component: () => import('@/views/Registro.vue')
   },
-  { 
+  {
     path: '/petcaremanager/',
     component: TabsPage,
     children: [
       {
         path: '',
         redirect: 'home' // Redirigir a home dentro de los tabs
+      },
+      // Notificaciones
+      {
+        path: 'notificaciones',
+        component: () => import('@/views/Notificaciones.vue')
       },
       // Actividad
       {
@@ -61,6 +66,10 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'home/:id',
         component: () => import('@/views/MascotaId.vue')
+      },
+      {
+        path: 'home/:id/cambiarfotomascota',
+        component: () => import('@/views/CambiarFotoMascota.vue')
       },
       // Eventos
       {
