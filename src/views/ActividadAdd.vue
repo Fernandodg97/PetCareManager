@@ -1,40 +1,44 @@
 <template>
   <ion-page>
     <!-- Encabezado -->
-    <Encabezado :btn="true"/>
+    <Encabezado :btn="true" />
     <!-- Contenido -->
     <ion-content>
       <ion-title>Añadir Actividad</ion-title>
-      <div class="content-container">
-        <!-- Mascota -->
-        <ion-item>
-          <ion-label position="stacked" class="custom-label">Mascota</ion-label>
-          <ion-input placeholder="Introduce el nombre de la mascota" class="custom-input"></ion-input>
-        </ion-item>
+      <form>
+        <div class="content-container">
 
-        <!-- Actividad -->
-        <ion-item>
-          <ion-label position="stacked" class="custom-label">Actividad</ion-label>
-          <ion-input placeholder="Introduce la actividad" class="custom-input"></ion-input>
-        </ion-item>
+          <!-- Mascota -->
+          <ion-item>
+            <ion-label position="stacked" class="custom-label">Mascota</ion-label>
+            <ion-input placeholder="Introduce el nombre de la mascota" class="custom-input"></ion-input>
+          </ion-item>
 
-        <!-- Fecha -->
-        <ion-item>
-          <ion-label position="stacked" class="custom-label">Fecha</ion-label>
-          <ion-input type="date" class="custom-input"></ion-input>
-        </ion-item>
+          <!-- Actividad -->
+          <ion-item>
+            <ion-label position="stacked" class="custom-label">Actividad</ion-label>
+            <ion-input placeholder="Introduce la actividad" class="custom-input"></ion-input>
+          </ion-item>
 
-        <!-- Hora -->
-        <ion-item>
-          <ion-label position="stacked" class="custom-label">Hora</ion-label>
-          <ion-input type="time" class="custom-input"></ion-input>
-        </ion-item>
+          <!-- Fecha -->
+          <ion-item>
+            <ion-label position="stacked" class="custom-label">Fecha</ion-label>
+            <ion-input type="date" class="custom-input"></ion-input>
+          </ion-item>
 
-        <!-- Botones -->
-        <div class="buttons-container">
-          <ion-button color="primary" expand="block" router-link="/petcaremanager/actividad">Añadir</ion-button>
+          <!-- Hora -->
+          <ion-item>
+            <ion-label position="stacked" class="custom-label">Hora</ion-label>
+            <ion-input type="time" class="custom-input"></ion-input>
+          </ion-item>
+
+          <!-- Botones -->
+          <div class="buttons-container">
+            <ion-button color="primary" expand="block" router-link="/petcaremanager/actividad">Añadir</ion-button>
+          </div>
+
         </div>
-      </div>
+      </form>
     </ion-content>
   </ion-page>
 </template>
@@ -73,11 +77,12 @@ import Encabezado from '@/components/Encabezado.vue';
 .buttons-container {
   margin-top: 20px;
   display: flex;
-  justify-content: center; /* Centrado del botón */
+  justify-content: center; /* Botones centrados */
 }
 
-ion-button {
-  flex: 1;
-  margin: 0 5px;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 </style>

@@ -14,9 +14,9 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue
 import ActividadLista from '@/components/ActividadLista.vue';
 import Encabezado from '@/components/Encabezado.vue';
 const listaDeHistorialmedico = [
-  { id: 1, name: 'Paseo', hora:'', mascota: 'Valkyria', fecha: '18/01/2020', tratamiento: 'Rabia' },
-  { id: 2, name: 'Comida', hora:'', mascota: 'Valkyria', fecha: '18/01/2020', tratamiento: 'Castracion' },
-  { id: 3, name: 'Comida', hora:'', mascota: 'Lua', fecha: '18/01/2020', tratamiento: '1ª Trivalente' }
+  { id: 1, name: 'Vacuna', hora:'Rabia', mascota: 'Valkyria', fecha: '18/01/2020',  },
+  { id: 2, name: 'Operacion', hora:'Castracion', mascota: 'Valkyria', fecha: '18/01/2020' },
+  { id: 3, name: 'Vacuna', hora:'1ª Trivalente', mascota: 'Lua', fecha: '18/01/2020' }
 ];
 </script>
 

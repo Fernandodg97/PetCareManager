@@ -68,36 +68,36 @@ h1 {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 12px;
+    color: #0a0a0a;
+    text-align: center;
+}
+
+ion-card{
+    margin: 0px;
 }
 
 .lista-actividades {
-    width: 100%;
+    width: 100%; 
     border-radius: 12px;
+    padding: 0px;
 }
 
-.actividad-card {
-    border-radius: 12px;
-    margin-bottom: 10px;
-}
-
-.actividad-card-azul ion-item, .actividad-card-blanco ion-item{
-    --inner-border-width: 0 0 0px 0;
-}
-
+/* Colores alternos para cada tarjeta */
 .actividad-card-azul {
-    background-color: #809FFF;
+    background: rgba(128, 159, 255, 0.50);
     color: white;
 }
 
-.actividad-card-azul ion-item {
-    --background: #809FFF;
+.actividad-card-blanco {
+    background-color: #ffffff;
+    color: #333;
 }
 
-.actividad-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
+/* Eliminar bordes internos en ion-item */
+.actividad-card-azul ion-item, 
+.actividad-card-blanco ion-item {
+    --inner-border-width: 0 0 0px 0;
+    --background: transparent;
 }
 
 .actividad-grid {
@@ -116,22 +116,17 @@ h1 {
 
 .actividad-nombre {
     font-weight: bold;
+    font-size: 16px;
 }
 
 .actividad-fecha {
     font-size: 12px;
 }
 
-.actividad-hora {
+.actividad-hora, .actividad-mascota {
     font-size: 14px;
     font-weight: bold;
     text-align: center;
-}
-
-.actividad-mascota {
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
 }
 
 .boton-anadir {

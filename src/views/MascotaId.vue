@@ -9,15 +9,19 @@
                         <ion-item>
                             <div class="mascota-grid">
                                 <div class="mascota-nombre">{{ mascotaSeleccionada.mascota }}</div>
-                                <div class="mascota-info">
-                                    <p class="mascota-raza">Raza: {{ mascotaSeleccionada.raza }}</p>
-                                    <p> | </p>
-                                    <p class="mascota-fecha">{{ mascotaSeleccionada.fecha }}</p>
-                                </div>
+                                <div class="mascota-raza"><strong class="titulo">Raza: </strong>{{ mascotaSeleccionada.raza }}</div>
+                                <div class="mascota-fecha"><strong class="titulo">Edad: </strong>{{ mascotaSeleccionada.fecha }}</div>
+                                <div class="mascota-peso"><strong class="titulo">Peso: </strong>{{ mascotaSeleccionada.peso }}</div>
+                                <div class="mascota-notas"><strong class="titulo">Notas: </strong>{{ mascotaSeleccionada.notas }}</div>
                             </div>
                         </ion-item>
                     </ion-card>
                 </ion-list>
+                <!-- Botones -->
+        <div class="buttons-container">
+          <ion-button color="primary" expand="block" router-link="/petcaremanager/home">Guardar</ion-button>
+          <ion-button color="danger" expand="block" router-link="/petcaremanager/home">Eliminar</ion-button>
+        </div>
             </div>
         </ion-content>
         <ion-content v-else>
@@ -38,8 +42,8 @@ const id = Number(route.params.id);
 
 // Array de mascotas
 const mascotas = ref([
-    { id: 1, raza: "Bulldog", fecha: "2025-02-14", mascota: "Rex", foto: "/src/assets/rex.png" },
-    { id: 2, raza: "Labrador", fecha: "2025-02-15", mascota: "Max", foto: "/src/assets/rex.png" }
+    { id: 1, raza: "Labrador", fecha: "2025/02/14", mascota: "Rex", peso: "12Kg", notas: "Alergico al pollo", foto: "/src/assets/rex.png" },
+    { id: 2, raza: "Gato Comun", fecha: "2025/02/15", mascota: "Lua", peso: "12Kg", notas: "Alergico al gelocatil", foto: "/src/assets/lua.jpg" }
 ]);
 
 // Buscar la mascota seleccionada por su id
@@ -93,36 +97,17 @@ h1 {
 }
 
 .mascota-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-}
-
-.mascota-info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-
-.mascota-raza {
-    font-weight: bold;
-}
-
-.mascota-fecha {
-    font-size: 12px;
-}
-
-.mascota-hora {
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .mascota-nombre {
-    font-size: 14px;
-    text-align: center;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -136,5 +121,16 @@ h1 {
     /* Esto hará que la imagen sea redonda */
     object-fit: cover;
     /* Asegura que la imagen se recorte si es necesario */
+}
+
+.buttons-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between; /* Botones alineados uno al lado del otro */
+}
+
+.buttons-container ion-button {
+  flex: 1;
+  margin: 0 5px;
 }
 </style>

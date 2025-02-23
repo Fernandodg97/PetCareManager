@@ -12,6 +12,15 @@
   
     <!-- Contenido -->
     <ion-content>
+      <div class="logo">
+          <img
+              src="../assets/logo.png"
+              alt="Foto de perfil"
+              class="profile-photo"
+            />
+          <h1>Pet Care Manager</h1>
+        </div>
+        <div class="contenedor">
       <!-- Usuario -->
       <ion-item>
         <ion-label position="stacked" class="custom-label">Usuario</ion-label>
@@ -70,6 +79,7 @@
           Registrarse
         </ion-button>
       </div>
+    </div>
     </ion-content>
   </ion-page>
 </template>
@@ -95,20 +105,54 @@ ion-content {
   padding: 16px;
 }
 
-.custom-label {
-  color: #A0A0A0; /* Texto gris clarito para los labels */
+.logo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  margin-top: 40px;
+}
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-.custom-input {
-  border-bottom: 2px solid #809fff; /* Línea azul debajo del input */
-  padding-bottom: 4px;
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #809fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  padding: 16px;
+  margin: 10px auto; /* Centrar el contenedor */
+}
+
+ion-item{
+  border-radius: 20px;
+  display: non;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.custom-label {
+  display: none;
+  color: #A0A0A0; /* Texto gris clarito para los labels */
 }
 
 .buttons-container {
   margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: center; /* Botones centrados */
 }
 
 ion-button {
