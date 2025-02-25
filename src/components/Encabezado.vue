@@ -3,7 +3,7 @@
     <ion-toolbar>
       <!-- Botón de "Atrás" alineado a la izquierda -->
       <ion-buttons v-if="btn" slot="start">
-        <ion-back-button text="Atrás"></ion-back-button>
+        <ion-back-button text=""></ion-back-button>
       </ion-buttons>
       
       <!-- Contenedor para centrar el contenido -->

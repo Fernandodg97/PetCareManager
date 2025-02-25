@@ -2,6 +2,10 @@
   <ion-page>
     <ion-tabs>
       <ion-router-outlet></ion-router-outlet>
+
+      <!-- <ion-tab-bar slot="bottom" class="custom-tab-bar-pc"> css utilitis: https://ionicframework.com/docs/layout/css-utilities#element-display-->
+      <!-- Hacer que al pasar la vista a pc el menu bar se oculte y se vea el de pc clase .ion-hide -->
+       
       <ion-tab-bar slot="bottom" class="custom-tab-bar">
         <ion-tab-button tab="actividad" href="/petcaremanager/actividad">
           <img src="../assets/new_releases.png" alt="Actividad" class="image" />

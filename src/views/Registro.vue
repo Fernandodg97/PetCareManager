@@ -4,7 +4,7 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button text="Atrás"></ion-back-button>
+          <ion-back-button text=""></ion-back-button>
         </ion-buttons>
         <ion-title>Registro</ion-title>
       </ion-toolbar>

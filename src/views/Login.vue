@@ -105,6 +105,7 @@ ion-content {
 }
 
 .input-wrapper{
+  all: unset !important;
   flex-direction: unset;
 }
 
