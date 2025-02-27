@@ -1,62 +1,69 @@
 <template>
-
   <ion-page>
-      <!-- Contenido -->
-      <ion-content>
-        <div class="logo">
-          <img
-              src="../assets/logo.png"
-              alt="Foto de perfil"
-              class="profile-photo"
-            />
-          <h1>Pet Care Manager</h1>
-        </div>
-        <div class="contenedor">
-        <!-- Usuario -->
-        <ion-item class="input">
-          <ion-label position="stacked" class="custom-label">Usuario</ion-label>
-          <ion-input placeholder="Usuario" class="custom-input" aria-label="Nombre de usuario"
-            required></ion-input>
-        </ion-item>
+    <ion-content>
+      <ion-grid>
+        <ion-row>
+            <ion-col size="12" size-xl="6">
+              <div class="logo">
+              <img
+                  src="../assets/logo.png"
+                  alt="Foto de perfil"
+                  class="profile-photo"
+                />
+              <h1>Pet Care Manager</h1>
+              </div>
+            </ion-col>
+            <ion-col size="12" size-xl="6">
+              <div class="contenedor">
+            <!-- Usuario -->
+            <ion-item class="input">
+              <ion-label position="stacked" class="custom-label">Usuario</ion-label>
+              <ion-input placeholder="Usuario" class="custom-input" aria-label="Nombre de usuario"
+                required></ion-input>
+            </ion-item>
 
-        <!-- Contraseña -->
-        <ion-item class="input">
-          <ion-label position="stacked" class="custom-label">Contraseña</ion-label>
-          <ion-input type="password" placeholder="Contraseña" aria-label="Contraseña" required
-            class="custom-input"></ion-input>
-        </ion-item>
+            <!-- Contraseña -->
+            <ion-item class="input">
+              <ion-label position="stacked" class="custom-label">Contraseña</ion-label>
+              <ion-input type="password" placeholder="Contraseña" aria-label="Contraseña" required
+                class="custom-input"></ion-input>
+            </ion-item>
 
-        <!-- Botones -->
-        <div class="buttons-container">
-          <ion-button color="primary" expand="block" router-link="/petcaremanager/home" aria-label="Iniciar sesión">
-            Iniciar Sesión
-          </ion-button>
-          <ion-button color="primary" expand="block" router-link="/petcaremanager/login/registro"
-            aria-label="Registrarse">
-            Registrarse
-          </ion-button>
-        </div>
-      </div>
-      </ion-content>
+            <!-- Botones -->
+            <div class="buttons-container">
+              <ion-button color="primary" expand="block" router-link="/petcaremanager/home" aria-label="Iniciar sesión">
+                Iniciar Sesión
+              </ion-button>
+              <ion-button color="primary" expand="block" router-link="/petcaremanager/login/registro"
+                aria-label="Registrarse">
+                Registrarse
+              </ion-button>
+            </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
   </ion-page>
-
 </template>
 
 <script setup lang="ts">
 import {
   IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
   IonContent,
   IonButton,
   IonItem,
   IonLabel,
-  IonInput
+  IonInput,
+  IonGrid,
+  IonRow,
+  IonCol
 } from "@ionic/vue";
 </script>
 
 <style scoped>
+
+
 ion-content {
   padding: 16px;
 }
@@ -118,5 +125,30 @@ ion-content {
 
 ion-button {
   margin-top: 20px;
+}
+
+/* Responsive */
+ion-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+ion-row{
+  width: 100%;
+}
+
+/* Estilos para PC o pantallas grandes (más de 992px) */
+@media (min-width: 993px) {
+  ion-header{
+    display: none;
+  }
+  .profile-photo {
+  width: 220px;
+  height: 220px;
+  }
+  .logo h1{
+    font-size: 3.625rem;
+  }
 }
 </style>
