@@ -21,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '',
-        redirect: 'home' // Redirigir a home dentro de los tabs
+        redirect: 'home'
       },
       // Notificaciones
       {
@@ -92,8 +92,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'perfil/cambiarcontrasena',
         component: () => import('@/views/CambiarContraseña.vue')
-      }
-      ,
+      },
       {
         path: 'perfil/cambiarfotoperfil',
         component: () => import('@/views/CambiarFotoPerfil.vue')
@@ -103,7 +102,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/'),
   routes
 });
 

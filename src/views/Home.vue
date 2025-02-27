@@ -1,59 +1,82 @@
 <template>
-  <ion-page class="phone">
+  <ion-page>
+    <Encabezado class="header" />
     <ion-content>
-      <Encabezado class="header" />
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" size-xl="9">
-            <div class="container">
-              <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
-
-              <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Rex" foto="/src/assets/rex.png" />
-              <CardMascota :id="2" raza="Gato comun" fecha="2025/02/15" mascota="Lua" foto="/src/assets/Lua.jpg" />
-
-              <CardLista titulo='Actividad' :items="listaDeActividades" ruta="actividad" />
-              <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" ruta="historialmedico" />
-              <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
-            </div>
-          </ion-col>
-          <ion-col size="12" size-xl="3">
-            <Encabezado class="notificaciones" />
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-content>
-  </ion-page>
-  <ion-page class="pc">
-    <ion-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" size-xl="9">
-            <div class="container">
-              <div class="contenedorMascotas">
-                <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Rex" foto="/src/assets/rex.png" />
-                <CardMascota :id="2" raza="Mezcla" fecha="2025/02/15" mascota="Lua" foto="/src/assets/Lua.jpg" />
+      <div v-if="esMovil" class="phone">
+        
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-xl="9">
+              <div class="container">
                 <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
+                <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Terra" foto="/src/assets/rex.png" />
+                <CardMascota :id="2" raza="Gato comun" fecha="2025/02/15" mascota="Lua" foto="/src/assets/Lua.jpg" />
+                <CardMascota :id="3" raza="Ficher" fecha="2025/02/15" mascota="Alioli" foto="/src/assets/agaporni.jpg" />
+                <CardMascota :id="4" raza="terrier" fecha="2025/02/27" mascota="Neitor"
+                  foto="/src/assets/terreneitor.jpg" />
+                <CardLista titulo='Actividad' :items="listaDeActividades" ruta="actividad" />
+                <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" ruta="historialmedico" />
+                <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
               </div>
-              <CardLista titulo='Actividad' :items="listaDeActividades" ruta="actividad" />
-              <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" ruta="historialmedico" />
-              <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
-            </div>
-          </ion-col>
-          <ion-col size="12" size-xl="3">
-            <Encabezado class="notificaciones" />
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div v-else class="pc">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-xl="9">
+              <div class="container">
+                <div class="contenedorMascotas">
+                  <swiper :modules="[Navigation, Pagination]" navigation pagination slidesPerView="auto"
+                    spaceBetween="10" loop>
+                    <swiper-slide class="swiper-item">
+                      <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Terra"
+                        foto="/src/assets/rex.png" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-item">
+                      <CardMascota :id="2" raza="Mezcla" fecha="2025/02/15" mascota="Lua"
+                        foto="/src/assets/Lua.jpg" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-item">
+                      <CardMascota :id="3" raza="Ficher" fecha="2025/02/15" mascota="Alioli"
+                        foto="/src/assets/agaporni.jpg" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-item">
+                      <CardMascota :id="4" raza="terrier" fecha="2025/02/27" mascota="Neitor"
+                        foto="/src/assets/terreneitor.jpg" />
+                    </swiper-slide>
+                  </swiper>
+                  <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
+                </div>
+                <CardLista titulo='Actividad' :items="listaDeActividades" ruta="actividad" />
+                <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" ruta="historialmedico" />
+                <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
+              </div>
+            </ion-col>
+            <ion-col size="12" size-xl="3">
+              <Encabezado class="not" />
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
     </ion-content>
   </ion-page>
 </template>
 
 
 <script setup lang="ts">
-import { IonPage, IonContent, IonButton, IonGrid, IonRow, IonCol } from '@ionic/vue';
+import { IonPage, IonContent, IonButton, IonGrid, IonRow, IonCol, IonList } from '@ionic/vue';
 import Encabezado from '@/components/Encabezado.vue';
 import CardLista from '@/components/CardLista.vue';
 import CardMascota from '@/components/CardMascota.vue';
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
+
 const listaDeActividades = [
   { id: 1, name: 'Paseo', mascota: 'Valkyria', fecha: '18/01/2020', hora: '11:30h' },
   { id: 2, name: 'Comida', mascota: 'Valkyria', fecha: '18/01/2020', hora: '13:00h' },
@@ -70,10 +93,25 @@ const listaDeEventos = [
   { id: 3, name: 'Peluquieria', mascota: 'Lua', fecha: '18/01/2020', hora: '13:00h' }
 ];
 
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const esMovil = ref(window.innerWidth < 993);
+
+const actualizarTamanoPantalla = () => {
+  esMovil.value = window.innerWidth < 993;
+};
+
+onMounted(() => {
+  window.addEventListener("resize", actualizarTamanoPantalla);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", actualizarTamanoPantalla);
+});
+
 </script>
 
 <style>
-/* Eliminar márgenes y rellenos en el body y en el ion-col */
 html,
 body {
   margin: 0;
@@ -101,11 +139,8 @@ ion-col {
   align-items: center;
   justify-content: center;
   width: 90%;
-  /* Ocupar todo el ancho disponible */
   max-width: 500px;
-  /* Evitar que los elementos sean demasiado anchos */
   margin: 0 auto;
-  /* Centrar horizontalmente */
   margin-bottom: 10px;
   text-align: center;
 }
@@ -115,30 +150,47 @@ ion-button {
   margin-bottom: 20px;
 }
 
+
+
+/* Responsive */
 /* PC */
-.contenedorMascotas{
-  background: rgba(128, 159, 255, 0.50);
+.contenedorMascotas {
+  background: rgba(128, 159, 255, 0.5);
   border-radius: 12px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
   margin: 20px;
   padding: 20px;
+  width: 90vh;
 }
 
-/* Responsive */
-.notificaciones {
-  background: #809fff;
-  height: 100vh;
-  position: fixed;
+.swiper-item {
+  width: 300px !important;
 }
+
+.swiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+
+
 
 /* Estilos para pantallas menos de 992px */
 @media (max-width: 993px) {
 
   .nav,
-  .notificaciones,
+  .not,
   .pc {
     display: none;
   }
@@ -150,6 +202,14 @@ ion-button {
   .header,
   .phone {
     display: none;
+  }
+
+  .container {
+    width: 90vh;
+  }
+
+  .container a {
+    width: 90vh;
   }
 }
 </style>

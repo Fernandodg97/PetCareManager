@@ -20,7 +20,6 @@
             </ion-list>
         </div>
     </router-link>
-    
 </template>
 
 <script setup lang="ts">
@@ -37,9 +36,6 @@ defineProps<{
 </script>
 
 <style scoped>
-/* router-link {
-    all: unset;
-} */
 a {
     all: unset;
     width: 90%;
@@ -57,14 +53,14 @@ a {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     width: 100%;
     padding: 16px;
-    margin: 10px auto; /* Centrar el contenedor horizontalmente */
+    margin: 10px auto;
 }
 
 .lista-mascotas {
     width: 100%;
     border-radius: 12px;
     background: #809fff;
-    text-align: center; /* Centrar el texto */
+    text-align: center;
 }
 
 .mascota-grid {
@@ -95,15 +91,17 @@ a {
 
 .mascota-image {
     width: 100%; 
-    height: 100%;
-    min-width: 300px;
-    min-height: 300px;
+    height: 200px; /* Puedes ajustar la altura a lo que prefieras */
+    max-width: 300px; /* Limita el ancho máximo para evitar que la imagen se haga demasiado grande */
     margin-bottom: 10px;
     margin: auto;
-}
-.mascota-image img{
-    object-fit: cover;
+    overflow: hidden;
     border-radius: 12px;
 }
 
+.mascota-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen se ajuste bien sin deformarse */
+}
 </style>

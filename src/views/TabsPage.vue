@@ -1,41 +1,38 @@
 <template>
   <ion-page>
     <ion-tabs>
-      <ion-router-outlet></ion-router-outlet>
+      <ion-router-outlet />
 
-      <!-- <ion-tab-bar slot="bottom" class="custom-tab-bar-pc"> css utilitis: https://ionicframework.com/docs/layout/css-utilities#element-display-->
-      <!-- Hacer que al pasar la vista a pc el menu bar se oculte y se vea el de pc clase .ion-hide -->
-
+      <!-- Tab Bar para móviles (oculto en pantallas grandes) -->
       <ion-tab-bar slot="bottom" class="mobile-tab-bar">
-        <ion-tab-button tab="actividad" href="/petcaremanager/actividad">
-          <img src="../assets/new_releases.png" alt="Actividad" class="image" />
+        <ion-tab-button tab="actividad" href="/petcaremanager/actividad" active-class="active">
+          <ion-icon :icon="paw"></ion-icon>
           <ion-label>Actividad</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="historialmedico" href="/petcaremanager/historialmedico">
-          <img src="../assets/add_box.png" alt="Historial Medico" class="image" />
+        <ion-tab-button tab="historialmedico" href="/petcaremanager/historialmedico" active-class="active">
+          <ion-icon :icon="medical"></ion-icon>
           <ion-label>Historial</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="home" href="/petcaremanager/home">
-          <img src="../assets/home.png" alt="Home" class="image" />
+        <ion-tab-button tab="home" href="/petcaremanager/home" active-class="active">
+          <ion-icon :icon="home"></ion-icon>
           <ion-label>Home</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="eventos" href="/petcaremanager/eventos">
-          <img src="../assets/event.png" alt="Eventos" class="image" />
+        <ion-tab-button tab="eventos" href="/petcaremanager/eventos" active-class="active">
+          <ion-icon :icon="calendar"></ion-icon>
           <ion-label>Eventos</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="perfil" href="/petcaremanager/perfil">
-          <!-- Foto redonda en lugar de icono -->
           <img src="../assets/f1.png" alt="Foto de perfil" class="image profile" />
           <ion-label>Perfil</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
-  
-      <!-- Barra lateral desktop -->
-      <div class="desktop-sidebar">
+
+      <!-- Barra lateral para escritorio (oculta en móviles) -->
+      <div class="desktop-sidebar ion-hide-xl-down">
         <div class="header-content">
           <img src="../assets/logo.png" alt="Notificaciones" class="logo" />
           <ion-title>Pet Care Manager</ion-title>
@@ -47,48 +44,43 @@
           </router-link>
 
           <router-link to="/petcaremanager/eventos" class="nav-item" active-class="active">
-            <ion-icon :icon="search"></ion-icon>
+            <ion-icon :icon="calendar"></ion-icon>
             <span>Eventos</span>
           </router-link>
 
           <router-link to="/petcaremanager/historialmedico" class="nav-item" active-class="active">
-            <ion-icon :icon="add"></ion-icon>
+            <ion-icon :icon="medical"></ion-icon>
             <span>Historial Medico</span>
           </router-link>
 
           <router-link to="/petcaremanager/actividad" class="nav-item" active-class="active">
-            <ion-icon :icon="bookmark"></ion-icon>
+            <ion-icon :icon="paw"></ion-icon>
             <span>Actividad</span>
           </router-link>
 
           <router-link to="/petcaremanager/home/mascotaadd" class="nav-item" active-class="active">
-            <ion-icon :icon="people"></ion-icon>
+            <ion-icon :icon="add"></ion-icon>
             <span>Añadir Mascota</span>
           </router-link>
-
         </nav>
-        <!-- <div class="logout-button">
-          <ion-button
-            fill="clear"
-            color="dark"
-            router-link="/petcaremanager/login"
-            aria-label="Cerrar Sesión"
-            class="logout-button"
-          >
-            Cerrar Sesión
-          </ion-button>
-        </div> -->
       </div>
-
-      <!-- Renderiza las rutas de las páginas dentro de los tabs -->
-      <ion-router-outlet />
     </ion-tabs>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet, IonGrid, IonRow, IonCol } from '@ionic/vue';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import {
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  IonLabel,
+  IonIcon,
+  IonPage,
+  IonRouterOutlet,
+  IonTitle
+} from '@ionic/vue';
+
+import { home, calendar, medical, paw, add} from 'ionicons/icons';
 </script>
 
 <style scoped>
@@ -221,5 +213,23 @@ ion-tab-button ion-label {
   ion-router-outlet {
     margin-left: 240px;
   }
+
+  .header-content {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.header-content ion-title {
+  margin: 0;
+  font-size: 18px;
+}
+
+  .logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 }
 </style>
