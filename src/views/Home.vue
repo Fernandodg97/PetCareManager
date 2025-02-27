@@ -1,16 +1,10 @@
 <template>
-  <ion-page>
-
+  <ion-page class="phone">
     <ion-content>
-      <Encabezado class="header"/>
+      <Encabezado class="header" />
       <ion-grid>
         <ion-row>
-          <ion-col size="12" size-xl="4">
-           <div class="notificaciones">
-              
-           </div>
-          </ion-col>          
-          <ion-col size="12" size-xl="4">
+          <ion-col size="12" size-xl="9">
             <div class="container">
               <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
 
@@ -22,8 +16,31 @@
               <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
             </div>
           </ion-col>
-          <ion-col size="12" size-xl="4">
-            <Encabezado class="header-xs"/>
+          <ion-col size="12" size-xl="3">
+            <Encabezado class="notificaciones" />
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ion-page>
+  <ion-page class="pc">
+    <ion-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-xl="9">
+            <div class="container">
+              <div class="contenedorMascotas">
+                <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Rex" foto="/src/assets/rex.png" />
+                <CardMascota :id="2" raza="Mezcla" fecha="2025/02/15" mascota="Lua" foto="/src/assets/Lua.jpg" />
+                <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
+              </div>
+              <CardLista titulo='Actividad' :items="listaDeActividades" ruta="actividad" />
+              <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" ruta="historialmedico" />
+              <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
+            </div>
+          </ion-col>
+          <ion-col size="12" size-xl="3">
+            <Encabezado class="notificaciones" />
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -56,6 +73,28 @@ const listaDeEventos = [
 </script>
 
 <style>
+/* Eliminar márgenes y rellenos en el body y en el ion-col */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ion-grid {
+  margin: 0;
+  padding: 0;
+}
+
+ion-row {
+  margin: 0;
+  padding: 0;
+}
+
+ion-col {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -75,30 +114,41 @@ ion-button {
   margin-top: 30px;
   margin-bottom: 20px;
 }
+
+/* PC */
+.contenedorMascotas{
+  background: rgba(128, 159, 255, 0.50);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+  padding: 20px;
+}
+
 /* Responsive */
-.header-xs{
+.notificaciones {
   background: #809fff;
-  height: 100%;
+  height: 100vh;
+  position: fixed;
 }
-.notificaciones{
-  background: #809fff;
-  height: 100%;
-}
+
 /* Estilos para pantallas menos de 992px */
 @media (max-width: 993px) {
-  .nav{
-    display: none;
-  }
-  .notificaciones{
-    display: none;
-  }
-  .header-xs{
+
+  .nav,
+  .notificaciones,
+  .pc {
     display: none;
   }
 }
+
 /* Estilos para PC o pantallas grandes (más de 992px) */
 @media (min-width: 993px) {
-  .header{
+
+  .header,
+  .phone {
     display: none;
   }
 }

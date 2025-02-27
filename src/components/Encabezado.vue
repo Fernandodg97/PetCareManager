@@ -10,14 +10,17 @@
       <div class="header-content">
         <img src="../assets/logo.png" alt="Notificaciones" class="logo" />
         <ion-title>Pet Care Manager</ion-title>
-      </div>
-      
-      <!-- Botón de notificaciones alineado a la derecha -->
+        <!-- Botón de notificaciones alineado a la derecha -->
       <ion-buttons slot="end">
         <ion-button router-link="/petcaremanager/notificaciones">
           <img src="../assets/notifications.png" alt="Notificaciones" class="profile-image" />
         </ion-button>
       </ion-buttons>
+      </div>
+      <div class="header-pc">
+        <h1>Notificaciones</h1>
+      </div>
+      
     </ion-toolbar>
   </ion-header>
 </template>
@@ -71,5 +74,18 @@ ion-toolbar {
   height: 30px;
   border-radius: 50%;
   object-fit: cover;
+}
+/* Responsive */
+/* Estilos para pantallas menos de 992px */
+@media (max-width: 993px) {
+  .header-pc{
+    display: none;
+  }
+}
+/* Estilos para PC o pantallas grandes (más de 992px) */
+@media (min-width: 993px) {
+  .header-content{
+    display: none;
+  }
 }
 </style>

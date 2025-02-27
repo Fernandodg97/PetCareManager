@@ -2,7 +2,9 @@
     <router-link :to="`home/${id}`">
         <div class="contenedor">
             <ion-list class="lista-mascotas">
-                <img :src="foto" alt="Foto de la mascota" class="mascota-image" />
+                <div class="mascota-image">
+                    <img :src="foto" alt="Foto de la mascota" />
+                </div>
                 <ion-card>
                     <ion-item>
                         <div class="mascota-grid">
@@ -92,9 +94,16 @@ a {
 }
 
 .mascota-image {
-    width: 95%; /* Ajusta el tamaño de la imagen */
-    height: 95%;
-    object-fit: cover;
+    width: 100%; 
+    height: 100%;
+    min-width: 300px;
+    min-height: 300px;
     margin-bottom: 10px;
+    margin: auto;
 }
+.mascota-image img{
+    object-fit: cover;
+    border-radius: 12px;
+}
+
 </style>

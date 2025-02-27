@@ -43,7 +43,7 @@ const id = Number(route.params.id);
 // Array de mascotas
 const mascotas = ref([
     { id: 1, raza: "Labrador", fecha: "2025/02/14", mascota: "Rex", peso: "12Kg", notas: "Alergico al pollo", foto: "/src/assets/rex.png" },
-    { id: 2, raza: "Gato Comun", fecha: "2025/02/15", mascota: "Lua", peso: "12Kg", notas: "Alergico al gelocatil", foto: "/src/assets/lua.jpg" }
+    { id: 2, raza: "Gato Comun", fecha: "2025/02/15", mascota: "Lua", peso: "12Kg", notas: "Alergico al gelocatil", foto: "/src/assets/Lua.jpg" }
 ]);
 
 // Buscar la mascota seleccionada por su id
