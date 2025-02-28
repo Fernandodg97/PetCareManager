@@ -105,7 +105,7 @@ ion-grid {
   padding: 0;
 }
 
-ion-row {
+ion-row { 
   margin: 0;
   padding: 0;
 }
@@ -150,7 +150,7 @@ ion-button {
 }
 
 .swiper-item {
-  width: 300px !important;
+  width: 260px !important;
 }
 
 .swiper {
@@ -194,7 +194,7 @@ ion-button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-right: 24%;
+  padding-right: 20%;
   }
 
   .container a {

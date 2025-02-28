@@ -109,7 +109,7 @@ ion-toolbar {
   position: fixed;
   top: 0; 
   right: 0; 
-  width: 25%; 
+  width: 20%; 
   z-index: 1; 
 }
 

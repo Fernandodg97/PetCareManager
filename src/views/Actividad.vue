@@ -21,6 +21,7 @@ const listaDeActividades = [
 </script>
 
 <style scoped>
+/* Estilos para pantallas menos de 992px */
 @media (max-width: 993px) {
   .contenedor {
     display: flex;
@@ -49,5 +50,26 @@ const listaDeActividades = [
   margin: 0 auto;
   margin-bottom: 10px;
   text-align: center;
+}
+
+/* Estilos para PC o pantallas grandes (más de 992px) */
+@media (min-width: 993px) {
+  .contenedor {
+    width: 140%;
+  }
+
+  .container {
+    all: unset;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 35%;
+    padding-right: 34%;
+  }
 }
 </style>
