@@ -1,5 +1,4 @@
 <template>
-    <ion-content>
         <div class="contenedor">
             <h1>{{titulo}}</h1>
 
@@ -23,11 +22,10 @@
                 Añadir
             </ion-button>
         </div>
-    </ion-content>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonList, IonCard, IonItem, IonButton } from '@ionic/vue';
+import {IonList, IonCard, IonItem, IonButton } from '@ionic/vue';
 
 import { defineProps } from 'vue';
 
@@ -48,6 +46,12 @@ defineProps<{
 </script>
 
 <style scoped>
+a {
+    all: unset;
+    width: 90%;
+    touch-action: manipulation;
+    cursor: pointer;
+}
 .contenedor {
     display: flex;
     flex-direction: column;
@@ -56,12 +60,9 @@ defineProps<{
     background: #809fff;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 90%;
+    width: 100%;
     padding: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 10px auto; /* Centrar el contenedor */
 }
 
 h1 {

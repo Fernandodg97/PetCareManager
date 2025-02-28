@@ -3,63 +3,45 @@
     <Encabezado class="header" />
     <ion-content>
       <div v-if="esMovil" class="phone">
-        
-        <ion-grid>
-          <ion-row>
-            <ion-col size="12" size-xl="9">
-              <div class="container">
-                <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
-                <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Terra" foto="/src/assets/rex.png" />
-                <CardMascota :id="2" raza="Gato comun" fecha="2025/02/15" mascota="Lua" foto="/src/assets/Lua.jpg" />
-                <CardMascota :id="3" raza="Ficher" fecha="2025/02/15" mascota="Alioli" foto="/src/assets/agaporni.jpg" />
-                <CardMascota :id="4" raza="terrier" fecha="2025/02/27" mascota="Neitor"
-                  foto="/src/assets/terreneitor.jpg" />
-                <CardLista titulo='Actividad' :items="listaDeActividades" ruta="actividad" />
-                <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" ruta="historialmedico" />
-                <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
-              </div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <div class="container">
+          <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
+          <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Terra" foto="/src/assets/rex.png" />
+          <CardMascota :id="2" raza="Gato comun" fecha="2025/02/15" mascota="Lua" foto="/src/assets/Lua.jpg" />
+          <CardMascota :id="3" raza="Ficher" fecha="2025/02/15" mascota="Alioli" foto="/src/assets/agaporni.jpg" />
+          <CardMascota :id="4" raza="terrier" fecha="2025/02/27" mascota="Neitor" foto="/src/assets/terreneitor.jpg" />
+          <CardLista titulo='Actividad' :items="listaDeActividades" ruta="actividad" />
+          <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" ruta="historialmedico" />
+          <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
+        </div>
       </div>
 
       <div v-else class="pc">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="12" size-xl="9">
-              <div class="container">
-                <div class="contenedorMascotas">
-                  <swiper :modules="[Navigation, Pagination]" navigation pagination slidesPerView="auto"
-                    spaceBetween="10" loop>
-                    <swiper-slide class="swiper-item">
-                      <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Terra"
-                        foto="/src/assets/rex.png" />
-                    </swiper-slide>
-                    <swiper-slide class="swiper-item">
-                      <CardMascota :id="2" raza="Mezcla" fecha="2025/02/15" mascota="Lua"
-                        foto="/src/assets/Lua.jpg" />
-                    </swiper-slide>
-                    <swiper-slide class="swiper-item">
-                      <CardMascota :id="3" raza="Ficher" fecha="2025/02/15" mascota="Alioli"
-                        foto="/src/assets/agaporni.jpg" />
-                    </swiper-slide>
-                    <swiper-slide class="swiper-item">
-                      <CardMascota :id="4" raza="terrier" fecha="2025/02/27" mascota="Neitor"
-                        foto="/src/assets/terreneitor.jpg" />
-                    </swiper-slide>
-                  </swiper>
-                  <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
-                </div>
-                <CardLista titulo='Actividad' :items="listaDeActividades" ruta="actividad" />
-                <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" ruta="historialmedico" />
-                <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
-              </div>
-            </ion-col>
-            <ion-col size="12" size-xl="3">
-              <Encabezado class="not" />
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <div class="container">
+          <div class="contenedorMascotas">
+            <swiper :modules="[Navigation, Pagination]" navigation pagination slidesPerView="auto" spaceBetween="10"
+              loop>
+              <swiper-slide class="swiper-item">
+                <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Terra" foto="/src/assets/rex.png" />
+              </swiper-slide>
+              <swiper-slide class="swiper-item">
+                <CardMascota :id="2" raza="Mezcla" fecha="2025/02/15" mascota="Lua" foto="/src/assets/Lua.jpg" />
+              </swiper-slide>
+              <swiper-slide class="swiper-item">
+                <CardMascota :id="3" raza="Ficher" fecha="2025/02/15" mascota="Alioli"
+                  foto="/src/assets/agaporni.jpg" />
+              </swiper-slide>
+              <swiper-slide class="swiper-item">
+                <CardMascota :id="4" raza="terrier" fecha="2025/02/27" mascota="Neitor"
+                  foto="/src/assets/terreneitor.jpg" />
+              </swiper-slide>
+            </swiper>
+            <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
+          </div>
+          <CardLista titulo='Actividad' :items="listaDeActividades" ruta="actividad" />
+          <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" ruta="historialmedico" />
+          <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
+        </div>
+        <Encabezado class="not" />
       </div>
     </ion-content>
   </ion-page>
@@ -67,7 +49,7 @@
 
 
 <script setup lang="ts">
-import { IonPage, IonContent, IonButton, IonGrid, IonRow, IonCol, IonList } from '@ionic/vue';
+import { IonPage, IonContent, IonButton } from '@ionic/vue';
 import Encabezado from '@/components/Encabezado.vue';
 import CardLista from '@/components/CardLista.vue';
 import CardMascota from '@/components/CardMascota.vue';
@@ -83,9 +65,9 @@ const listaDeActividades = [
   { id: 3, name: 'Comida', mascota: 'Lua', fecha: '18/01/2020', hora: '13:00h' }
 ];
 const listaDeHistorialmedico = [
-  { id: 1, name: 'Vacuna', hora: '', mascota: 'Valkyria', fecha: '18/01/2020', tratamiento: 'Rabia' },
-  { id: 2, name: 'Comida', hora: '', mascota: 'Valkyria', fecha: '18/01/2020', tratamiento: 'Castracion' },
-  { id: 3, name: 'Comida', hora: '', mascota: 'Lua', fecha: '18/01/2020', tratamiento: '1ª Trivalente' }
+  { id: 1, name: 'Vacuna', hora: 'Rabia', mascota: 'Valkyria', fecha: '18/01/2020', },
+  { id: 2, name: 'Operacion', hora: 'Castracion', mascota: 'Valkyria', fecha: '18/01/2020' },
+  { id: 3, name: 'Vacuna', hora: '1ª Trivalente', mascota: 'Lua', fecha: '18/01/2020' }
 ];
 const listaDeEventos = [
   { id: 1, name: 'Vacunacion', mascota: 'Valkyria', fecha: '18/01/2020', hora: '11:30h' },
@@ -203,9 +185,16 @@ ion-button {
   .phone {
     display: none;
   }
+  .container {
+    all: unset;
+  }
 
   .container {
-    width: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 24%;
   }
 
   .container a {

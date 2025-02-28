@@ -1,9 +1,11 @@
 <template>
   <ion-page>
-    <Encabezado/>
+    <Encabezado />
     <ion-content>
-      <ActividadLista titulo='Actividad' :items="listaDeActividades"
-        addButtonLink="/petcaremanager/actividad/actividadadd" ruta="actividad" />
+      <div class="container">
+        <ActividadLista titulo='Actividad' :items="listaDeActividades"
+          addButtonLink="/petcaremanager/actividad/actividadadd" ruta="actividad" />
+      </div>
     </ion-content>
   </ion-page>
 </template>
@@ -17,3 +19,35 @@ const listaDeActividades = [
   { id: 3, name: 'Comida', mascota: 'Lua', fecha: '18/01/2020', hora: '13:00h' }
 ];
 </script>
+
+<style scoped>
+@media (max-width: 993px) {
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #809fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    padding: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  text-align: center;
+}
+</style>

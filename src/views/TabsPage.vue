@@ -106,7 +106,7 @@ ion-tab-button ion-label {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 240px;
+  width: 250px;
   background-color: #809fff;
   padding: 20px;
   flex-direction: column;

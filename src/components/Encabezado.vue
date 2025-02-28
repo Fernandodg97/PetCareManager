@@ -17,7 +17,7 @@
           </ion-button>
         </ion-buttons>
       </div>
-      <div class="header-pc">
+      <div class="header-pc ion-hide-xl-down">
         <h1>Notificaciones</h1>
         <div class="notItem">
           <ion-list v-if="notificaciones.length > 0">
@@ -122,6 +122,7 @@ ion-toolbar {
   border-radius: 12px;
 }
 
+
 /* Estilos para pantallas menos de 992px */
 @media (max-width: 993px) {
   .header-pc {
@@ -134,5 +135,15 @@ ion-toolbar {
   .header-content {
     display: none;
   }
+  ion-toolbar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: #809fff;
+  padding: 20px;
+  flex-direction: column;
+}
 }
 </style>
