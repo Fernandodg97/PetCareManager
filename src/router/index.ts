@@ -67,10 +67,6 @@ const routes: Array<RouteRecordRaw> = [
         path: 'home/:id',
         component: () => import('@/views/MascotaId.vue')
       },
-      {
-        path: 'home/:id/cambiarfotomascota',
-        component: () => import('@/views/CambiarFotoMascota.vue')
-      },
       // Eventos
       {
         path: 'eventos',
