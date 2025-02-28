@@ -5,8 +5,9 @@
 
     <!-- Contenido -->
     <ion-content>
-      <ion-title>Editar Foto</ion-title>
+      
       <div class="content-container">
+        <ion-title class="add-pet-title">Editar Foto</ion-title>
         <form>
           <!-- Foto de Perfil -->
           <div class="profile-photo-container">
@@ -139,5 +140,20 @@ form {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+.add-pet-title {
+    text-align: center;
+    font-size: 24px; /* Tamaño de fuente adecuado */
+    font-weight: bold; /* Negrita para mayor énfasis */
+    color: #1a1a1a; /* Color del texto */
+    margin-top: 20px; /* Espaciado superior */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+/* Estilos para PC o pantallas grandes (más de 992px) */
+@media (min-width: 993px) {
+
+.content-container {
+padding-right: 20%;
+}
 }
 </style>

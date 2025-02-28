@@ -2,7 +2,7 @@
   <ion-header class="custom-header">
     <ion-toolbar>
       <!-- Botón de "Atrás" alineado a la izquierda -->
-      <ion-buttons v-if="btn" slot="start">
+      <ion-buttons class="btn" v-if="btn" slot="start">
         <ion-back-button text=""></ion-back-button>
       </ion-buttons>
 
@@ -18,7 +18,15 @@
         </ion-buttons>
       </div>
       <div class="header-pc ion-hide-xl-down">
+
+        <div class="perfil">
+          <router-link to="/petcaremanager/perfil" class="nav-item" active-class="active">
+          <img src="../assets/f1.png" alt="Foto de perfil" />
+            <span>Perfil</span>
+          </router-link>
         <h1>Notificaciones</h1>
+        </div>
+
         <div class="notItem">
           <ion-list v-if="notificaciones.length > 0">
             <NotificationItem v-for="noti in notificaciones" :key="noti.id" :id="noti.id" :titulo="noti.titulo"
@@ -45,7 +53,6 @@ const notificaciones = ref([
   { id: 3, titulo: "Alerta de comida", mensaje: "Hora de alimentar a Luna 🐶", leida: false },
   { id: 4, titulo: "Paseo pendiente", mensaje: "No olvides sacar a Max a su paseo diario 🐕", leida: true },
   { id: 5, titulo: "Vacunación", mensaje: "Recuerda que el refuerzo de vacunas de Tom está próximo 📅", leida: true },
-  { id: 6, titulo: "Evento cercano", mensaje: "Este sábado hay una feria de adopción en el parque central 🏞️", leida: true },
   { id: 7, titulo: "Revisión médica", mensaje: "Hoy es el chequeo de salud anual de Nala 🏥", leida: true },
 ]);
 
@@ -132,7 +139,7 @@ ion-toolbar {
 
 /* Estilos para PC o pantallas grandes (más de 992px) */
 @media (min-width: 993px) {
-  .header-content {
+  .header-content, .btn {
     display: none;
   }
   ion-toolbar {
@@ -144,6 +151,39 @@ ion-toolbar {
   background-color: #809fff;
   padding: 20px;
   flex-direction: column;
+  }
+  .perfil{
+    margin-top: 20px;
+  }
+  .perfil h1{
+    color: white;
+    margin-top: 20px;
+  }
+  .perfil img{
+    width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  }
+  .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+  color: black;
+  font-weight: bold;
+}
+
 }
 </style>

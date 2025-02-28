@@ -91,8 +91,8 @@ a {
 
 .mascota-image {
     width: 100%; 
-    height: 200px; /* Puedes ajustar la altura a lo que prefieras */
-    max-width: 300px; /* Limita el ancho máximo para evitar que la imagen se haga demasiado grande */
+    height: 300px; 
+    max-width: 300px; 
     margin-bottom: 10px;
     margin: auto;
     overflow: hidden;

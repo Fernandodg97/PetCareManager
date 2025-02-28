@@ -156,7 +156,7 @@ ion-tab-button ion-label {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .nav-item {
@@ -218,6 +218,7 @@ ion-tab-button ion-label {
   display: flex;
   align-items: center;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .header-content ion-title {

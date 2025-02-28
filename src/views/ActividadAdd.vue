@@ -4,10 +4,10 @@
     <Encabezado :btn="true" />
     <!-- Contenido -->
     <ion-content>
-      <ion-title>Añadir Actividad</ion-title>
+      
       <form>
         <div class="content-container">
-
+          <ion-title class="add-pet-title">Añadir Actividad</ion-title>
           <!-- Mascota -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Mascota</ion-label>
@@ -61,6 +61,14 @@ import Encabezado from '@/components/Encabezado.vue';
 </script>
 
 <style scoped>
+.add-pet-title {
+    text-align: center;
+    font-size: 24px; /* Tamaño de fuente adecuado */
+    font-weight: bold; /* Negrita para mayor énfasis */
+    color: #1a1a1a; /* Color del texto */
+    margin-top: 20px; /* Espaciado superior */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
 .content-container {
   margin: 0 16px; /* Margen lateral */
 }
@@ -84,5 +92,12 @@ form {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+/* Estilos para PC o pantallas grandes (más de 992px) */
+@media (min-width: 993px) {
+
+.content-container {
+padding-right: 20%;
+}
 }
 </style>
