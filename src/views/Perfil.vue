@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    <Encabezado/>
+    <Encabezado />
 
     <!-- Contenido -->
     <ion-content>
@@ -8,13 +8,8 @@
         <ion-title class="add-pet-title">Perfil</ion-title>
         <!-- Botón Cerrar Sesión (arriba derecha, en negro) -->
         <div class="logout-container">
-          <ion-button
-            fill="clear"
-            color="dark"
-            router-link="/petcaremanager/login"
-            aria-label="Cerrar Sesión"
-            class="logout-button"
-          >
+          <ion-button fill="clear" color="dark" router-link="/petcaremanager/login" aria-label="Cerrar Sesión"
+            class="logout-button">
             Cerrar Sesión
           </ion-button>
         </div>
@@ -22,106 +17,79 @@
         <form>
           <!-- Foto de Perfil -->
           <div class="profile-photo-container">
-            <img
-              src="../assets/f1.png"
-              alt="Foto de perfil"
-              class="profile-photo"
-            />
-            <ion-button
-              fill="clear"
-              color="primary"
-              router-link="/petcaremanager/perfil/cambiarfotoperfil"
-              aria-label="Cambiar"
-              class="change-photo-button"
-            >
+            <img src="../assets/f1.png" alt="Foto de perfil" class="profile-photo" />
+            <ion-button fill="clear" color="primary" router-link="/petcaremanager/perfil/cambiarfotoperfil"
+              aria-label="Cambiar" class="change-photo-button">
               Cambiar
             </ion-button>
           </div>
-          
+
           <!-- Nombre -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Nombre</ion-label>
-            <ion-input
-              placeholder="Introduce el nombre"
-              aria-label="Nombre"
-              class="custom-input"
-            ></ion-input>
+            <ion-input placeholder="Introduce el nombre" aria-label="Nombre" class="custom-input"></ion-input>
           </ion-item>
 
           <!-- Apellido -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Apellido</ion-label>
-            <ion-input
-              placeholder="Introduce el apellido"
-              aria-label="Apellido"
-              class="custom-input"
-            ></ion-input>
+            <ion-input placeholder="Introduce el apellido" aria-label="Apellido" class="custom-input"></ion-input>
           </ion-item>
 
           <!-- Edad -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Edad</ion-label>
-            <ion-input
-              type="date"
-              aria-label="Edad"
-              class="custom-input"
-            ></ion-input>
+            <ion-input type="date" aria-label="Edad" class="custom-input"></ion-input>
           </ion-item>
 
           <!-- Email -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Email</ion-label>
-            <ion-input
-              placeholder="Introduce el email"
-              aria-label="Email"
-              type="email"
-              required
-              class="custom-input"
-            ></ion-input>
+            <ion-input placeholder="Introduce el email" aria-label="Email" type="email" required
+              class="custom-input"></ion-input>
           </ion-item>
 
           <!-- Teléfono -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Teléfono</ion-label>
-            <ion-input
-              placeholder="Introduce el teléfono"
-              aria-label="Teléfono"
-              type="tel"
-              pattern="^[0-9]{9}$"
-              required
-              class="custom-input"
-            ></ion-input>
+            <ion-input placeholder="Introduce el teléfono" aria-label="Teléfono" type="tel" pattern="^[0-9]{9}$"
+              required class="custom-input"></ion-input>
           </ion-item>
 
           <!-- Botones -->
           <div class="buttons-container">
-            <ion-button
-              color="primary"
-              expand="block"
-              router-link="/petcaremanager/perfil/cambiarcontrasena"
-              aria-label="Cambiar contraseña"
-            >
+            <ion-button color="primary" expand="block" router-link="/petcaremanager/perfil/cambiarcontrasena"
+              aria-label="Cambiar contraseña">
               Cambiar contraseña
             </ion-button>
-            <ion-button
-              color="primary"
-              expand="block"
-              router-link="/petcaremanager/perfil"
-              aria-label="Guardar cambios"
-            >
+            <ion-button color="primary" expand="block" @click="handleSave" aria-label="Guardar cambios">
               Guardar
             </ion-button>
           </div>
-        
+
         </form>
       </div>
     </ion-content>
+    
   </ion-page>
 </template>
 
 <script setup lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonItem, IonLabel, IonInput } from '@ionic/vue';
 import Encabezado from '@/components/Encabezado.vue';
+import { IonAlert } from '@ionic/vue';
+import { ref } from 'vue';
+
+// Variable para controlar si se debe mostrar la alerta
+const showAlert = ref(false);
+const message = ref('Los datos se han guardado correctamente.');
+
+const handleSave = () => {
+  // Lógica para guardar los datos (puedes incluir la lógica de la API aquí)
+
+  // Muestra la alerta
+  showAlert.value = true;
+};
 </script>
 
 <style scoped>
@@ -130,7 +98,8 @@ ion-content {
 }
 
 .content-container {
-  margin: 0 16px; /* Margen lateral */
+  margin: 0 16px;
+  /* Margen lateral */
   margin-bottom: 16px;
 }
 
@@ -166,23 +135,28 @@ ion-content {
 }
 
 .custom-label {
-  color: #A0A0A0; /* Texto gris clarito para los labels */
+  color: #A0A0A0;
+  /* Texto gris clarito para los labels */
 }
 
 .custom-input {
-  border-bottom: 2px solid #809fff; /* Línea azul debajo del input */
+  border-bottom: 2px solid #809fff;
+  /* Línea azul debajo del input */
   padding-bottom: 4px;
 }
 
 .buttons-container {
   margin-top: 20px;
   display: flex;
-  justify-content: center; /* Centrar los botones */
+  justify-content: center;
+  /* Centrar los botones */
   /* flex-direction: column; */
 }
+
 .buttons-container ion-button {
   flex: 1;
-  margin: 10px 5px; /* Espaciado entre los botones */
+  margin: 10px 5px;
+  /* Espaciado entre los botones */
 }
 
 form {
@@ -190,19 +164,26 @@ form {
   flex-direction: column;
   gap: 16px;
 }
+
 .add-pet-title {
-    text-align: center;
-    font-size: 24px; /* Tamaño de fuente adecuado */
-    font-weight: bold; /* Negrita para mayor énfasis */
-    color: #1a1a1a; /* Color del texto */
-    margin-top: 20px; /* Espaciado superior */
-    margin-bottom: 20px; /* Espaciado inferior */
+  text-align: center;
+  font-size: 24px;
+  /* Tamaño de fuente adecuado */
+  font-weight: bold;
+  /* Negrita para mayor énfasis */
+  color: #1a1a1a;
+  /* Color del texto */
+  margin-top: 20px;
+  /* Espaciado superior */
+  margin-bottom: 20px;
+  /* Espaciado inferior */
 }
+
 /* Estilos para PC o pantallas grandes (más de 992px) */
 @media (min-width: 993px) {
 
-.content-container {
-padding-right: 20%;
-}
+  .content-container {
+    padding-right: 20%;
+  }
 }
 </style>

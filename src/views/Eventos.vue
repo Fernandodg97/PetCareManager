@@ -15,6 +15,7 @@
 import { IonContent, IonPage } from '@ionic/vue';
 import ActividadLista from '@/components/ActividadLista.vue';
 import Encabezado from '@/components/Encabezado.vue';
+import CardElemento from '@/components/CardElemento.vue';
 const listaDeEventos = [
   { id: 1, name: 'Vacunacion', mascota: 'Valkyria', fecha: '18/01/2020', hora: '11:30h' },
   { id: 2, name: 'Revision', mascota: 'Valkyria', fecha: '18/01/2020', hora: '13:00h' },

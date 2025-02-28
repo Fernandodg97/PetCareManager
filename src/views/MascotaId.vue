@@ -8,54 +8,90 @@
                     <ion-card>
                         <ion-item>
                             <div class="mascota-grid">
-                                <div class="mascota-nombre">{{ mascotaSeleccionada.mascota }}</div>
-                                <div class="mascota-raza"><strong class="titulo">Raza: </strong>{{ mascotaSeleccionada.raza }}</div>
-                                <div class="mascota-fecha"><strong class="titulo">Edad: </strong>{{ mascotaSeleccionada.fecha }}</div>
-                                <div class="mascota-peso"><strong class="titulo">Peso: </strong>{{ mascotaSeleccionada.peso }}</div>
-                                <div class="mascota-notas"><strong class="titulo">Notas: </strong>{{ mascotaSeleccionada.notas }}</div>
+                                <ion-item>
+                                    <ion-label position="stacked" class="custom-label">Actividad</ion-label>
+                                    <ion-input v-model="mascotaSeleccionada.mascota" class="custom-input"></ion-input>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-label position="stacked" class="custom-label">Raza:</ion-label>
+                                    <ion-input v-model="mascotaSeleccionada.raza" class="custom-input"></ion-input>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-label position="stacked" class="custom-label">Edad:</ion-label>
+                                    <ion-input v-model="mascotaSeleccionada.fecha" class="custom-input"></ion-input>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-label position="stacked" class="custom-label">Peso:</ion-label>
+                                    <ion-input v-model="mascotaSeleccionada.peso" class="custom-input"></ion-input>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-label position="stacked" class="custom-label">Notas:</ion-label>
+                                    <ion-input v-model="mascotaSeleccionada.notas" class="custom-input"></ion-input>
+                                </ion-item>
                             </div>
                         </ion-item>
                     </ion-card>
                 </ion-list>
                 <!-- Botones -->
-        <div class="buttons-container">
-          <ion-button color="primary" expand="block" router-link="/petcaremanager/home">Guardar</ion-button>
-          <ion-button color="danger" expand="block" router-link="/petcaremanager/home">Eliminar</ion-button>
-        </div>
+                <div class="buttons-container">
+                    <ion-button color="primary" expand="block" router-link="/petcaremanager/home">Guardar</ion-button>
+                    <ion-button color="danger" expand="block" @click="confirmarEliminar">Eliminar</ion-button>
+                </div>
             </div>
         </ion-content>
         <ion-content v-else>
             <p>Mascota no encontrada</p>
         </ion-content>
+        
+        <ion-alert
+            :is-open="showAlert"
+            header="Confirmar eliminación"
+            message="¿Estás seguro de que deseas eliminar esta mascota?"
+            :buttons="[
+                { text: 'Cancelar', role: 'cancel', handler: () => showAlert = false },
+                { text: 'Eliminar', handler: eliminarMascota }
+            ]"
+        />
     </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonList, IonCard, IonItem, IonPage } from '@ionic/vue';
+import { IonContent, IonList, IonCard, IonItem, IonPage, IonInput, IonButton, IonLabel, IonAlert } from '@ionic/vue';
 import { ref } from 'vue';
 import Encabezado from '@/components/Encabezado.vue';
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 // Obtener el parámetro de la URL
 const route = useRoute();
+const router = useRouter();
 const id = Number(route.params.id);
+
+// Estado del popup de confirmación
+const showAlert = ref(false);
 
 // Array de mascotas
 const mascotas = ref([
     { id: 1, raza: "Labrador", fecha: "2025/02/14", mascota: "Rex", peso: "12Kg", notas: "Alergico al pollo", foto: "/src/assets/rex.png" },
-    { id: 2, raza: "Gato Comun", fecha: "2025/02/15", mascota: "Lua", peso: "12Kg", notas: "Alergico al gelocatil", foto: "/src/assets/Lua.jpg" }
+    { id: 2, raza: "Gato Comun", fecha: "2025/02/15", mascota: "Lua", peso: "12Kg", notas: "Alergico al gelocatil", foto: "/src/assets/Lua.jpg" },
+    { id: 3, raza: "Ficher", fecha: "2025/02/15", mascota: "Alioli", peso: "1.5Kg", notas: "Le gusta volar", foto: "/src/assets/agaporni.jpg" },
+    { id: 4, raza: "Terrier", fecha: "2025/02/27", mascota: "Neitor", peso: "8Kg", notas: "Muy juguetón", foto: "/src/assets/terreneitor.jpg" }
 ]);
 
 // Buscar la mascota seleccionada por su id
-const mascotaSeleccionada = mascotas.value.find(mascota => mascota.id === id);
+const mascotaSeleccionada = ref(mascotas.value.find(mascota => mascota.id === id));
+
+// Función para mostrar el popup de confirmación
+const confirmarEliminar = () => {
+    showAlert.value = true;
+};
+
+// Función para eliminar la mascota
+const eliminarMascota = () => {
+    router.push("/petcaremanager/home");
+};
 </script>
 
-
 <style scoped>
-/* ion-content {
-    height: 70%;
-} */
-
 .contenedor {
     display: flex;
     flex-direction: column;
@@ -65,35 +101,15 @@ const mascotaSeleccionada = mascotas.value.find(mascota => mascota.id === id);
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     width: 90%;
+    max-width: 500px;
     padding: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-h1 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 12px;
+    margin: 20px auto;
 }
 
 .lista-mascotas {
     width: 100%;
     border-radius: 12px;
     background: #809fff;
-}
-
-.mascota-card {
-    border-radius: 12px;
-    margin-bottom: 10px;
-}
-
-.mascota-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
 }
 
 .mascota-grid {
@@ -106,31 +122,47 @@ h1 {
     margin-bottom: 10px;
 }
 
-.mascota-nombre {
-    font-size: 18px;
-    font-weight: bold;
+@media (min-width: 768px) {
+    .mascota-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        width: 100%;
+    }
 }
 
-/* Estilo para la imagen */
 .mascota-image {
-    width: 95%;
-    /* Ajusta el tamaño de la imagen según necesites */
-    height: 95%;
-    /* Asegúrate de que el alto y ancho sean iguales */
-    border-radius: 5%;
-    /* Esto hará que la imagen sea redonda */
+    width: 100%;
+    max-height: 250px;
+    border-radius: 10px;
     object-fit: cover;
-    /* Asegura que la imagen se recorte si es necesario */
+    margin-bottom: 15px;
 }
 
 .buttons-container {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between; /* Botones alineados uno al lado del otro */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .buttons-container ion-button {
-  flex: 1;
-  margin: 0 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .buttons-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .buttons-container ion-button {
+        width: 48%;
+    }
+    .contenedor {
+    
+    margin-right: 44%;
+}
 }
 </style>
