@@ -2,93 +2,112 @@
   <ion-page>
     <Encabezado />
 
-    <!-- Contenido -->
     <ion-content>
       <div class="content-container">
         <ion-title class="add-pet-title">Perfil</ion-title>
-        <!-- Botón Cerrar Sesión (arriba derecha, en negro) -->
         <div class="logout-container">
-          <ion-button fill="clear" color="dark" router-link="/petcaremanager/login" aria-label="Cerrar Sesión"
-            class="logout-button">
+          <ion-button fill="clear" color="dark" @click="confirmarCerrarSesion" class="logout-button">
             Cerrar Sesión
           </ion-button>
         </div>
 
         <form>
-          <!-- Foto de Perfil -->
           <div class="profile-photo-container">
             <img src="../assets/f1.png" alt="Foto de perfil" class="profile-photo" />
-            <ion-button fill="clear" color="primary" router-link="/petcaremanager/perfil/cambiarfotoperfil"
-              aria-label="Cambiar" class="change-photo-button">
+            <ion-button fill="clear" color="primary" router-link="/petcaremanager/perfil/cambiarfotoperfil">
               Cambiar
             </ion-button>
           </div>
 
-          <!-- Nombre -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Nombre</ion-label>
-            <ion-input placeholder="Introduce el nombre" aria-label="Nombre" class="custom-input"></ion-input>
+            <ion-input v-model="perfil.nombre" class="custom-input"></ion-input>
           </ion-item>
 
-          <!-- Apellido -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Apellido</ion-label>
-            <ion-input placeholder="Introduce el apellido" aria-label="Apellido" class="custom-input"></ion-input>
+            <ion-input v-model="perfil.apellido" class="custom-input"></ion-input>
           </ion-item>
 
-          <!-- Edad -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Edad</ion-label>
-            <ion-input type="date" aria-label="Edad" class="custom-input"></ion-input>
+            <ion-input type="date" v-model="perfil.edad" class="custom-input"></ion-input>
           </ion-item>
 
-          <!-- Email -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Email</ion-label>
-            <ion-input placeholder="Introduce el email" aria-label="Email" type="email" required
-              class="custom-input"></ion-input>
+            <ion-input v-model="perfil.email" type="email" required class="custom-input"></ion-input>
           </ion-item>
 
-          <!-- Teléfono -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Teléfono</ion-label>
-            <ion-input placeholder="Introduce el teléfono" aria-label="Teléfono" type="tel" pattern="^[0-9]{9}$"
-              required class="custom-input"></ion-input>
+            <ion-input v-model="perfil.telefono" type="tel" required class="custom-input"></ion-input>
           </ion-item>
 
-          <!-- Botones -->
           <div class="buttons-container">
-            <ion-button color="primary" expand="block" router-link="/petcaremanager/perfil/cambiarcontrasena"
-              aria-label="Cambiar contraseña">
+            <ion-button color="primary" expand="block" router-link="/petcaremanager/perfil/cambiarcontrasena">
               Cambiar contraseña
             </ion-button>
-            <ion-button color="primary" expand="block" @click="handleSave" aria-label="Guardar cambios">
+            <ion-button color="primary" expand="block" @click="handleSave">
               Guardar
             </ion-button>
           </div>
-
         </form>
       </div>
+
+      <ion-alert
+        :is-open="showAlert"
+        header="Confirmar Cierre de Sesión"
+        message="¿Estás seguro de que deseas cerrar sesión?"
+        :buttons="[
+          { text: 'Cancelar', role: 'cancel', handler: () => showAlert = false },
+          { text: 'Cerrar Sesión', handler: cerrarSesion }
+        ]"
+      />
+
+      <ion-alert
+        :is-open="showSuccessAlert"
+        header="Éxito"
+        message="Los datos se han guardado correctamente."
+        :buttons="['OK']"
+        @didDismiss="showSuccessAlert = false"
+      />
     </ion-content>
-    
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonItem, IonLabel, IonInput } from '@ionic/vue';
-import Encabezado from '@/components/Encabezado.vue';
-import { IonAlert } from '@ionic/vue';
 import { ref } from 'vue';
+import { IonPage, IonContent, IonButton, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonAlert } from '@ionic/vue';
+import Encabezado from '@/components/Encabezado.vue';
+import { useRouter } from 'vue-router';
 
-// Variable para controlar si se debe mostrar la alerta
+const router = useRouter();
+const perfiles = ref([
+  { id: 1, nombre: 'Fernando', apellido: 'Diaz Gutierrez', edad: '1997-03-10', email: 'fernando@example.com', telefono: '600123456', foto: '../assets/f1.png' },
+  { id: 2, nombre: 'Ana', apellido: 'Martínez López', edad: '2000-05-15', email: 'ana@example.com', telefono: '600654321', foto: '../assets/f2.png' }
+]);
+
+const perfilSeleccionado = ref(perfiles.value[0].id);
+const perfil = ref({ ...perfiles.value.find(p => p.id === perfilSeleccionado.value) });
 const showAlert = ref(false);
-const message = ref('Los datos se han guardado correctamente.');
+const showSuccessAlert = ref(false);
+
+const confirmarCerrarSesion = () => {
+  showAlert.value = true;
+};
+
+const cerrarSesion = () => {
+  router.push('/petcaremanager/login');
+};
 
 const handleSave = () => {
-  // Lógica para guardar los datos (puedes incluir la lógica de la API aquí)
+  console.log('Datos guardados:', perfil.value);
+  showSuccessAlert.value = true;
+};
 
-  // Muestra la alerta
-  showAlert.value = true;
+const cargarPerfil = () => {
+  perfil.value = { ...perfiles.value.find(p => p.id === perfilSeleccionado.value) };
 };
 </script>
 
@@ -99,7 +118,6 @@ ion-content {
 
 .content-container {
   margin: 0 16px;
-  /* Margen lateral */
   margin-bottom: 16px;
 }
 
@@ -136,12 +154,10 @@ ion-content {
 
 .custom-label {
   color: #A0A0A0;
-  /* Texto gris clarito para los labels */
 }
 
 .custom-input {
   border-bottom: 2px solid #809fff;
-  /* Línea azul debajo del input */
   padding-bottom: 4px;
 }
 
@@ -149,14 +165,11 @@ ion-content {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  /* Centrar los botones */
-  /* flex-direction: column; */
 }
 
 .buttons-container ion-button {
   flex: 1;
   margin: 10px 5px;
-  /* Espaciado entre los botones */
 }
 
 form {
@@ -168,20 +181,13 @@ form {
 .add-pet-title {
   text-align: center;
   font-size: 24px;
-  /* Tamaño de fuente adecuado */
   font-weight: bold;
-  /* Negrita para mayor énfasis */
   color: #1a1a1a;
-  /* Color del texto */
   margin-top: 20px;
-  /* Espaciado superior */
   margin-bottom: 20px;
-  /* Espaciado inferior */
 }
 
-/* Estilos para PC o pantallas grandes (más de 992px) */
 @media (min-width: 993px) {
-
   .content-container {
     padding-right: 20%;
   }
