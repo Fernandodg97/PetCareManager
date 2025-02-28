@@ -17,3 +17,6 @@ class="add-pet-title"
 padding-right: 20%;
 }
 }
+
+
+Falta añadir macotas, y responsive mascotaId
