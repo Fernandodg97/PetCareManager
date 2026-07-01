@@ -5,10 +5,10 @@
       <div v-if="esMovil" class="phone">
         <div class="container">
           <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
-          <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Terra" foto="/src/assets/rex.png" />
-          <CardMascota :id="2" raza="Gato comun" fecha="2025/02/15" mascota="Lua" foto="/src/assets/Lua.jpg" />
-          <CardMascota :id="3" raza="Ficher" fecha="2025/02/15" mascota="Alioli" foto="/src/assets/agaporni.jpg" />
-          <CardMascota :id="4" raza="terrier" fecha="2025/02/27" mascota="Neitor" foto="/src/assets/terreneitor.jpg" />
+          <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Terra" :foto="rexFoto" />
+          <CardMascota :id="2" raza="Gato comun" fecha="2025/02/15" mascota="Lua" :foto="luaFoto" />
+          <CardMascota :id="3" raza="Ficher" fecha="2025/02/15" mascota="Alioli" :foto="agaporniFoto" />
+          <CardMascota :id="4" raza="terrier" fecha="2025/02/27" mascota="Neitor" :foto="terreneitorFoto" />
           <CardLista titulo='Actividad' :items="listaDeActividades" ruta="actividad" />
           <CardLista titulo='Historial Medico' :items="listaDeHistorialmedico" ruta="historialmedico" />
           <CardLista titulo='Eventos' :items="listaDeEventos" ruta="eventos" />
@@ -21,18 +21,18 @@
             <swiper :modules="[Navigation, Pagination]" navigation pagination slidesPerView="auto" spaceBetween="10"
               loop>
               <swiper-slide class="swiper-item">
-                <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Terra" foto="/src/assets/rex.png" />
+                <CardMascota :id="1" raza="Bulldog" fecha="2025/02/14" mascota="Terra" :foto="rexFoto" />
               </swiper-slide>
               <swiper-slide class="swiper-item">
-                <CardMascota :id="2" raza="Mezcla" fecha="2025/02/15" mascota="Lua" foto="/src/assets/Lua.jpg" />
+                <CardMascota :id="2" raza="Mezcla" fecha="2025/02/15" mascota="Lua" :foto="luaFoto" />
               </swiper-slide>
               <swiper-slide class="swiper-item">
                 <CardMascota :id="3" raza="Ficher" fecha="2025/02/15" mascota="Alioli"
-                  foto="/src/assets/agaporni.jpg" />
+                  :foto="agaporniFoto" />
               </swiper-slide>
               <swiper-slide class="swiper-item">
                 <CardMascota :id="4" raza="terrier" fecha="2025/02/27" mascota="Neitor"
-                  foto="/src/assets/terreneitor.jpg" />
+                  :foto="terreneitorFoto" />
               </swiper-slide>
             </swiper>
             <ion-button router-link="/petcaremanager/home/mascotaadd">Añadir Mascota</ion-button>
@@ -58,6 +58,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+
+import rexFoto from '@/assets/rex.png';
+import luaFoto from '@/assets/Lua.jpg';
+import agaporniFoto from '@/assets/agaporni.jpg';
+import terreneitorFoto from '@/assets/terreneitor.jpg';
 
 const listaDeActividades = [
   { id: 1, name: 'Paseo', mascota: 'Valkyria', fecha: '18/01/2020', hora: '11:30h' },

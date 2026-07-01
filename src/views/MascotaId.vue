@@ -61,6 +61,11 @@ import { ref } from 'vue';
 import Encabezado from '@/components/Encabezado.vue';
 import { useRoute, useRouter } from "vue-router";
 
+import rexFoto from '@/assets/rex.png';
+import luaFoto from '@/assets/Lua.jpg';
+import agaporniFoto from '@/assets/agaporni.jpg';
+import terreneitorFoto from '@/assets/terreneitor.jpg';
+
 // Obtener el parámetro de la URL
 const route = useRoute();
 const router = useRouter();
@@ -71,10 +76,10 @@ const showAlert = ref(false);
 
 // Array de mascotas
 const mascotas = ref([
-    { id: 1, raza: "Labrador", fecha: "2025/02/14", mascota: "Rex", peso: "12Kg", notas: "Alergico al pollo", foto: "/src/assets/rex.png" },
-    { id: 2, raza: "Gato Comun", fecha: "2025/02/15", mascota: "Lua", peso: "12Kg", notas: "Alergico al gelocatil", foto: "/src/assets/Lua.jpg" },
-    { id: 3, raza: "Ficher", fecha: "2025/02/15", mascota: "Alioli", peso: "1.5Kg", notas: "Le gusta volar", foto: "/src/assets/agaporni.jpg" },
-    { id: 4, raza: "Terrier", fecha: "2025/02/27", mascota: "Neitor", peso: "8Kg", notas: "Muy juguetón", foto: "/src/assets/terreneitor.jpg" }
+    { id: 1, raza: "Labrador", fecha: "2025/02/14", mascota: "Rex", peso: "12Kg", notas: "Alergico al pollo", foto: rexFoto },
+    { id: 2, raza: "Gato Comun", fecha: "2025/02/15", mascota: "Lua", peso: "12Kg", notas: "Alergico al gelocatil", foto: luaFoto },
+    { id: 3, raza: "Ficher", fecha: "2025/02/15", mascota: "Alioli", peso: "1.5Kg", notas: "Le gusta volar", foto: agaporniFoto },
+    { id: 4, raza: "Terrier", fecha: "2025/02/27", mascota: "Neitor", peso: "8Kg", notas: "Muy juguetón", foto: terreneitorFoto }
 ]);
 
 // Buscar la mascota seleccionada por su id
