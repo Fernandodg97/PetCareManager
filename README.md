@@ -20,6 +20,12 @@ Aplicación móvil para el cuidado de mascotas construida con **Ionic + Vue 3 + 
 - Sistema de navegación con tabs y rutas anidadas (Ionic Vue Router) para cada sección: mascotas, actividad, historial médico, eventos, perfil y notificaciones
 - Componentes reutilizables tipados con TypeScript (`CardMascota`, `CardLista`, `NotificationItem`) parametrizados por props
 
+| | |
+|---|---|
+| Demo | [vuepetcaremanager.netlify.app](https://vuepetcaremanager.netlify.app/) |
+
+> El login no valida usuario y contraseña: pulsa directamente "Iniciar Sesión" sin rellenar los campos para entrar a la app.
+
 ---
 
 ## Funcionalidades
