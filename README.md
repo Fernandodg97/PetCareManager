@@ -20,8 +20,6 @@ Aplicación móvil para el cuidado de mascotas construida con **Ionic + Vue 3 + 
 - Sistema de navegación con tabs y rutas anidadas (Ionic Vue Router) para cada sección: mascotas, actividad, historial médico, eventos, perfil y notificaciones
 - Componentes reutilizables tipados con TypeScript (`CardMascota`, `CardLista`, `NotificationItem`) parametrizados por props
 
-> Proyecto en desarrollo activo, centrado en la capa frontend: los datos se gestionan en memoria como base para conectar más adelante con un backend propio.
-
 ---
 
 ## Funcionalidades

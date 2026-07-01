@@ -58,12 +58,12 @@
           <!-- Archivo Adjunto -->
           <ion-item>
             <ion-label position="stacked" class="custom-label">Archivo Adjunto</ion-label>
-            <ion-input
+            <input
               type="file"
               accept="application/pdf, image/*"
               aria-label="Subir archivo adjunto"
               class="custom-input"
-            ></ion-input>
+            />
           </ion-item>
 
           <!-- Botones -->

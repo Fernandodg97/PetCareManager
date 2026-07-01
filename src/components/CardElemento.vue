@@ -38,8 +38,9 @@
   });
   
   // Convertir clave a formato legible
-  const formatKey = (key: string) => {
-    return key.charAt(0).toUpperCase() + key.slice(1);
+  const formatKey = (key: string | number) => {
+    const text = String(key);
+    return text.charAt(0).toUpperCase() + text.slice(1);
   };
   </script>
   
